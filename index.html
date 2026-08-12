@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- SEO Primary Meta Tags -->
+  <title>Backend Developer & Software Engineer in Nepal | Soyal</title>
+  <meta name="description" content="Senior Backend Developer in Kathmandu, Nepal specializing in Python, Django, FastAPI, Laravel, REST API architecture, and Wagtail CMS solutions.">
+  <meta name="keywords" content="Backend Developer Nepal, Python Developer Nepal, Django Developer Nepal, Laravel Developer Nepal, Software Developer Kathmandu, REST API Architecture, Wagtail CMS">
+  <meta name="author" content="Soyal">
+  <link rel="canonical" href="https://soyal-portfolio.dev/">
+  <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+  <link rel="manifest" href="site.webmanifest">
+  <meta name="theme-color" content="#0f172a">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://soyal-portfolio.dev/">
+  <meta property="og:title" content="Backend Developer & Software Engineer in Nepal | Soyal">
+  <meta property="og:description" content="Senior Backend Developer specializing in Python, Django, FastAPI, Laravel, REST API architecture, and database design.">
+  <meta property="og:image" content="https://soyal-portfolio.dev/assets/images/og-home.webp">
+  <meta property="og:site_name" content="Soyal Engineering Brand">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Backend Developer & Software Engineer in Nepal | Soyal">
+  <meta name="twitter:description" content="Senior Backend Developer specializing in Python, Django, FastAPI, Laravel, REST API architecture, and database design.">
+  <meta name="twitter:image" content="https://soyal-portfolio.dev/assets/images/og-home.webp">
+
+  <!-- Fonts & Styles -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/css/styles.css">
+
+  <!-- JSON-LD Structured Data for Person & WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://soyal-portfolio.dev/#person",
+        "name": "Soyal",
+        "jobTitle": "Senior Backend Developer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Independent Engineering Consultant"
+        },
+        "url": "https://soyal-portfolio.dev",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kathmandu",
+          "addressCountry": "Nepal"
+        },
+        "knowsAbout": [
+          "Python", "Django", "FastAPI", "PHP", "Laravel", "Wagtail CMS", "REST APIs", "MySQL", "PostgreSQL", "Database Design", "API Security"
+        ],
+        "sameAs": [
+          "https://github.com/",
+          "https://linkedin.com/in/"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://soyal-portfolio.dev/#website",
+        "url": "https://soyal-portfolio.dev",
+        "name": "Soyal | Backend Developer Portfolio",
+        "publisher": {
+          "@id": "https://soyal-portfolio.dev/#person"
+        }
+      }
+    ]
+  }
+  </script>
+</head>
+<body class="bg-slate-900 text-slate-100 min-h-screen flex flex-col antialiased">
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-slate-900/80 backdrop-blur-md border-b border-slate-800/80 transition-colors duration-200">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Brand Logo / Name -->
+        <a href="index.html" class="flex items-center gap-2 group" aria-label="Soyal Portfolio Homepage">
+          <div class="w-9 h-9 rounded-lg bg-slate-800 border border-slate-700 flex items-center justify-center text-emerald-400 group-hover:border-emerald-500/50 transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+          </div>
+          <span class="font-bold text-lg text-slate-100 tracking-tight">Soyal<span class="text-emerald-500">.dev</span></span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden md:flex items-center space-x-8" aria-label="Primary navigation">
+          <a href="index.html" class="text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors">Home</a>
+          <a href="about.html" class="text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors">About</a>
+          <a href="experience.html" class="text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors">Experience</a>
+          <a href="projects.html" class="text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors">Projects</a>
+          <a href="contact.html" class="text-sm font-medium text-slate-300 hover:text-emerald-400 transition-colors">Contact</a>
+        </nav>
+
+        <!-- Right Action Group -->
+        <div class="hidden md:flex items-center space-x-4">
+          <button type="button" class="theme-toggle-btn p-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 transition-colors" aria-label="Toggle light and dark mode">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden dark:block" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 block dark:hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
+            </svg>
+          </button>
+          
+          <a href="resume.html" class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-emerald-400 border border-emerald-500/30 hover:border-emerald-500 hover:bg-emerald-500/10 transition-all">
+            Resume
+          </a>
+        </div>
+
+        <!-- Mobile Menu Trigger -->
+        <div class="flex md:hidden items-center space-x-2">
+          <button type="button" class="theme-toggle-btn p-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800" aria-label="Toggle theme">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
+            </svg>
+          </button>
+          <button type="button" id="mobile-menu-btn" class="p-2 rounded-lg text-slate-400 hover:text-slate-200 hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open primary navigation menu">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-800 bg-slate-900 px-4 pt-2 pb-6 space-y-3">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-200 hover:bg-slate-800">Home</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">About</a>
+      <a href="experience.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">Experience</a>
+      <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">Projects</a>
+      <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-300 hover:bg-slate-800">Contact</a>
+      <a href="resume.html" class="block px-3 py-2 rounded-md text-base font-medium text-emerald-400 bg-emerald-950/30 border border-emerald-800 text-center mt-4">View Resume</a>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main id="main-content" class="flex-grow">
+    
+    <section id="hero" class="relative py-16 md:py-24 border-b border-slate-800/60 overflow-hidden">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-7 space-y-6">
+            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-950/60 border border-emerald-800/80 text-emerald-400 text-xs font-medium tracking-wide">
+              <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+              Available for Senior Backend & Software Engineering Roles
+            </div>
+
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-100 leading-tight">
+              Backend Developer building <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-teal-400">reliable APIs</span> & production systems.
+            </h1>
+
+            <p class="text-lg text-slate-300 max-w-2xl font-normal leading-relaxed">
+              I specialize in Python, Django, FastAPI, PHP, Laravel, and Wagtail CMS. Based in Kathmandu, Nepal, I architect robust database models, high-performance REST APIs, and scalable business logic for real-world application platforms.
+            </p>
+
+            <div class="flex flex-wrap gap-4 pt-2">
+              <a href="projects.html" class="px-6 py-3.5 rounded-lg bg-emerald-500 text-slate-950 font-semibold hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/20 text-center">
+                View My Work
+              </a>
+              <a href="contact.html" class="px-6 py-3.5 rounded-lg bg-slate-800 text-slate-200 border border-slate-700 font-medium hover:border-slate-500 hover:bg-slate-700 transition-all text-center">
+                Get in Touch
+              </a>
+              <a href="resume.html" class="px-6 py-3.5 rounded-lg text-slate-400 hover:text-emerald-400 text-sm font-medium flex items-center gap-2 transition-colors">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Download Resume
+              </a>
+            </div>
+
+            <div class="pt-6 border-t border-slate-800/80">
+              <span class="text-xs uppercase tracking-wider font-semibold text-slate-500 block mb-3">Core Stack Expertise</span>
+              <div class="flex flex-wrap gap-2 text-xs font-mono">
+                <span class="px-2.5 py-1 rounded bg-slate-800/90 text-slate-300 border border-slate-700">Python</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800/90 text-slate-300 border border-slate-700">Django</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800/90 text-slate-300 border border-slate-700">FastAPI</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800/90 text-slate-300 border border-slate-700">Laravel</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800/90 text-slate-300 border border-slate-700">Wagtail CMS</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800/90 text-slate-300 border border-slate-700">MySQL / PostgreSQL</span>
+                <span class="px-2.5 py-1 rounded bg-slate-800/90 text-slate-300 border border-slate-700">REST APIs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="lg:col-span-5">
+            <div class="tech-card rounded-xl overflow-hidden shadow-2xl bg-slate-950 border border-slate-800">
+              <div class="px-4 py-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
+                <div class="flex items-center space-x-2">
+                  <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+                </div>
+                <span class="text-xs font-mono text-slate-400">system_status.py</span>
+                <span class="text-xs font-mono text-emerald-400">200 OK</span>
+              </div>
+              
+              <div class="p-5 font-mono text-xs leading-relaxed space-y-4 text-slate-300">
+                <div>
+                  <span class="text-slate-500"># System Identity & Positioning</span><br>
+                  <span class="text-emerald-400">developer</span> = {<br>
+                  &nbsp;&nbsp;<span class="text-slate-400">"name"</span>: <span class="text-teal-300">"Soyal"</span>,<br>
+                  &nbsp;&nbsp;<span class="text-slate-400">"role"</span>: <span class="text-teal-300">"Senior Backend Engineer"</span>,<br>
+                  &nbsp;&nbsp;<span class="text-slate-400">"location"</span>: <span class="text-teal-300">"Kathmandu, Nepal"</span>,<br>
+                  &nbsp;&nbsp;<span class="text-slate-400">"status"</span>: <span class="text-teal-300">"Open to Remote / Global Roles"</span><br>
+                  }
+                </div>
+
+                <div class="border-t border-slate-800/80 pt-3">
+                  <span class="text-slate-500"># Engineering Capabilities</span><br>
+                  <span class="text-emerald-400">services</span> = [<br>
+                  &nbsp;&nbsp;<span class="text-amber-300">"REST API Architecture"</span>,<br>
+                  &nbsp;&nbsp;<span class="text-amber-300">"Wagtail / Django Enterprise CMS"</span>,<br>
+                  &nbsp;&nbsp;<span class="text-amber-300">"Database Design & Query Optimization"</span>,<br>
+                  &nbsp;&nbsp;<span class="text-amber-300">"Authentication & Payment Security"</span><br>
+                  ]
+                </div>
+
+                <div class="border-t border-slate-800/80 pt-3 flex items-center justify-between text-[11px] text-slate-400">
+                  <span class="flex items-center gap-1.5">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
+                    API Uptime: 99.98%
+                  </span>
+                  <span>Latency: 24ms</span>
+                  <span class="text-emerald-400">Clean Architecture</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="py-16 md:py-24 border-b border-slate-800/60 bg-slate-900/40">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
+          <div>
+            <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400">Case Studies</span>
+            <h2 class="text-3xl font-bold text-slate-100 mt-2">Featured Engineering Projects</h2>
+            <p class="text-slate-400 mt-2 max-w-xl">Production business software, POS systems, booking engines, and API infrastructure built with Django, Laravel, and Wagtail.</p>
+          </div>
+          <a href="projects.html" class="mt-4 md:mt-0 text-sm font-semibold text-emerald-400 hover:text-emerald-300 flex items-center gap-1">
+            Explore All Projects
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          
+          <article class="tech-card rounded-xl p-6 bg-slate-900 border border-slate-800 flex flex-col justify-between hover:border-emerald-500/50 transition-all reveal-on-scroll">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 text-xs font-mono">Full-Stack / POS</span>
+                <span class="text-xs text-slate-500 font-mono">Laravel • Vue • MySQL</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-100">
+                <a href="projects/nexuspos.html" class="hover:text-emerald-400 transition-colors">NexusPOS — Multi-Store Point of Sale</a>
+              </h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Enterprise inventory management, multi-outlet billing, automated CRM, restaurant kitchen ordering, and real-time sales reporting backend built with Laravel REST APIs and MySQL.
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+                <span>• Multi-tenant DB</span>
+                <span>• Inventory Sync</span>
+                <span>• Kitchen Display API</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+              <a href="projects/nexuspos.html" class="text-sm font-semibold text-emerald-400 hover:underline inline-flex items-center gap-1">
+                View Detailed Case Study
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="tech-card rounded-xl p-6 bg-slate-900 border border-slate-800 flex flex-col justify-between hover:border-emerald-500/50 transition-all reveal-on-scroll">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 text-xs font-mono">Backend API / Engine</span>
+                <span class="text-xs text-slate-500 font-mono">FastAPI • Redis • PostgreSQL</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-100">
+                <a href="projects/cinema-platform.html" class="hover:text-emerald-400 transition-colors">Cinema Ticket Booking Engine</a>
+              </h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                High-concurrency ticket reservation engine handling seat row locks, movie scheduling, automated ticket generation, and payment gateway webhooks using FastAPI async tasks.
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+                <span>• Redis Lock Engine</span>
+                <span>• Concurrency Handling</span>
+                <span>• JWT Security</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+              <a href="projects/cinema-platform.html" class="text-sm font-semibold text-emerald-400 hover:underline inline-flex items-center gap-1">
+                View Detailed Case Study
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="tech-card rounded-xl p-6 bg-slate-900 border border-slate-800 flex flex-col justify-between hover:border-emerald-500/50 transition-all reveal-on-scroll">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 text-xs font-mono">CMS & E-commerce</span>
+                <span class="text-xs text-slate-500 font-mono">Django • Wagtail • WooCommerce</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-100">
+                <a href="projects/ecommerce.html" class="hover:text-emerald-400 transition-colors">Wagtail E-Commerce & Product Hub</a>
+              </h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Headless product catalog and content management system powering automated product taxonomy, order fulfillment hooks, and multi-currency pricing endpoints.
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+                <span>• Wagtail StreamField</span>
+                <span>• Custom Page Models</span>
+                <span>• WooCommerce REST Sync</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+              <a href="projects/ecommerce.html" class="text-sm font-semibold text-emerald-400 hover:underline inline-flex items-center gap-1">
+                View Detailed Case Study
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+          <article class="tech-card rounded-xl p-6 bg-slate-900 border border-slate-800 flex flex-col justify-between hover:border-emerald-500/50 transition-all reveal-on-scroll">
+            <div class="space-y-4">
+              <div class="flex items-center justify-between">
+                <span class="px-2.5 py-1 rounded-md bg-emerald-950/80 text-emerald-400 border border-emerald-800/60 text-xs font-mono">Real-Time System</span>
+                <span class="text-xs text-slate-500 font-mono">Python • WebSockets • Redis</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-100">
+                <a href="projects/bidding-platform.html" class="hover:text-emerald-400 transition-colors">Online Auction & Bidding Engine</a>
+              </h3>
+              <p class="text-slate-300 text-sm leading-relaxed">
+                Sub-second bidding system with state machine validation, countdown timer state, WebSocket broadcast events, and automated winner settlement routines.
+              </p>
+              <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-400">
+                <span>• Async WebSockets</span>
+                <span>• State Machine</span>
+                <span>• Race Condition Guard</span>
+              </div>
+            </div>
+            <div class="mt-6 pt-4 border-t border-slate-800 flex items-center justify-between">
+              <a href="projects/bidding-platform.html" class="text-sm font-semibold text-emerald-400 hover:underline inline-flex items-center gap-1">
+                View Detailed Case Study
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                </svg>
+              </a>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="engineering" class="py-16 md:py-24 border-b border-slate-800/60">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400">Engineering Philosophy</span>
+          <h2 class="text-3xl sm:text-4xl font-bold text-slate-100 mt-2">How I Build Software</h2>
+          <p class="text-slate-400 mt-3 text-base">A systematic approach to architecting backend systems that remain maintainable, secure, and performant over time.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div class="tech-card p-6 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="w-10 h-10 rounded-lg bg-emerald-950 border border-emerald-800 text-emerald-400 flex items-center justify-center font-bold font-mono text-sm mb-4">01</div>
+            <h3 class="text-xl font-bold text-slate-100">Understand & Model</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">Deeply analyze domain logic before writing code. Design clear database schemas, relational foreign keys, and API contracts.</p>
+          </div>
+
+          <div class="tech-card p-6 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="w-10 h-10 rounded-lg bg-emerald-950 border border-emerald-800 text-emerald-400 flex items-center justify-center font-bold font-mono text-sm mb-4">02</div>
+            <h3 class="text-xl font-bold text-slate-100">Secure & Authorize</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">Implement strict role-based authorization (RBAC), JWT / Session security, payload validation, and SQL injection prevention by default.</p>
+          </div>
+
+          <div class="tech-card p-6 rounded-xl bg-slate-900 border border-slate-800">
+            <div class="w-10 h-10 rounded-lg bg-emerald-950 border border-emerald-800 text-emerald-400 flex items-center justify-center font-bold font-mono text-sm mb-4">03</div>
+            <h3 class="text-xl font-bold text-slate-100">Optimize & Maintain</h3>
+            <p class="text-slate-300 text-sm mt-2 leading-relaxed">Benchmark database query execution times, eliminate N+1 queries, add Redis caching, and write clean, modular Django/Wagtail code.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact-cta" class="py-16 md:py-24 bg-gradient-to-b from-slate-900 to-slate-950 border-b border-slate-800/60">
+      <div class="max-w-4xl mx-auto px-4 text-center space-y-6">
+        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-400">Let's Work Together</span>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-100">Have a problem worth solving?</h2>
+        <p class="text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
+          I'm actively interested in senior backend engineering roles, Django/Wagtail CMS developments, and complex software projects.
+        </p>
+        <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
+          <a href="contact.html" class="px-8 py-4 rounded-lg bg-emerald-500 text-slate-950 font-bold hover:bg-emerald-400 transition-all shadow-lg shadow-emerald-500/20">
+            Send a Message
+          </a>
+          <button type="button" data-email="soyal@example.com" class="copy-email-btn px-6 py-4 rounded-lg bg-slate-800 text-slate-200 border border-slate-700 font-medium hover:border-slate-500 transition-all">
+            Copy Email Address
+          </button>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="bg-slate-950 border-t border-slate-800/80 py-12 text-sm text-slate-400">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="space-y-3 md:col-span-2">
+          <a href="index.html" class="font-bold text-base text-slate-100">Soyal<span class="text-emerald-500">.dev</span></a>
+          <p class="text-slate-400 text-xs leading-relaxed max-w-sm">
+            Senior Backend Developer & Software Engineer based in Kathmandu, Nepal. Building production backend systems with Django, Wagtail, FastAPI, and Laravel.
+          </p>
+          <p class="text-xs text-slate-500">Kathmandu, Nepal • Available Worldwide</p>
+        </div>
+
+        <div class="space-y-2">
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-300 block mb-3">Site Links</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="about.html" class="hover:text-emerald-400 transition-colors">About Me</a></li>
+            <li><a href="experience.html" class="hover:text-emerald-400 transition-colors">Career Experience</a></li>
+            <li><a href="projects.html" class="hover:text-emerald-400 transition-colors">Engineering Projects</a></li>
+            <li><a href="contact.html" class="hover:text-emerald-400 transition-colors">Contact Information</a></li>
+            <li><a href="resume.html" class="hover:text-emerald-400 transition-colors">Developer Resume</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-300 block mb-3">Profiles</span>
+          <ul class="space-y-2 text-xs">
+            <li><a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">GitHub Profile</a></li>
+            <li><a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-400 transition-colors">LinkedIn Profile</a></li>
+            <li><a href="mailto:soyal@example.com" class="hover:text-emerald-400 transition-colors">Email Direct</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-12 pt-6 border-t border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+        <p>© <span class="current-year">2026</span> Soyal. All rights reserved. Built for Wagtail/Django integration.</p>
+        <div class="flex items-center space-x-4">
+          <a href="sitemap.xml" class="hover:text-slate-400">Sitemap</a>
+          <a href="robots.txt" class="hover:text-slate-400">Robots.txt</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script src="assets/js/navigation.js"></script>
+  <script src="assets/js/animations.js"></script>
+  <script src="assets/js/contact.js"></script>
+</body>
+</html>
