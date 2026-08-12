@@ -1,8 +1,23 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth dark">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="color-scheme" content="light dark">
+
+  <script>
+    (function() {
+      var saved = localStorage.getItem('theme');
+      var isDark = saved ? saved === 'dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if (isDark) {
+        document.documentElement.classList.add('dark');
+        document.documentElement.classList.remove('light');
+      } else {
+        document.documentElement.classList.remove('dark');
+        document.documentElement.classList.add('light');
+      }
+    })();
+  </script>
   
   <!-- SEO Primary Meta Tags -->
   <title>Software & Backend Engineering Projects | Soyal Developer</title>
@@ -25,8 +40,9 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
   <script>
-    tailwind = {
+    tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
@@ -49,7 +65,6 @@
       }
     }
   </script>
-  <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="assets/css/styles.css">
 
   <script type="application/ld+json">
@@ -63,10 +78,10 @@
   }
   </script>
 </head>
-<body class="bg-emerald-50/40 text-slate-900 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased transition-colors duration-200">
+<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased transition-colors duration-200">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md border-b border-emerald-100 dark:border-slate-800/80 transition-colors duration-200 shadow-sm dark:shadow-none">
+  <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-200 shadow-sm dark:shadow-none">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         <a href="index.html" class="flex items-center gap-2 group" aria-label="Soyal Portfolio Homepage">
@@ -87,7 +102,7 @@
         </nav>
 
         <div class="hidden md:flex items-center space-x-4">
-          <button type="button" class="theme-toggle-btn p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-slate-200 bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700 transition-colors" aria-label="Toggle light and dark mode">
+          <button type="button" class="theme-toggle-btn p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-colors" aria-label="Toggle light and dark mode">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden dark:block text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
@@ -95,13 +110,13 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
             </svg>
           </button>
-          <a href="resume.html" class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-500/30 hover:bg-emerald-100 dark:hover:bg-emerald-500/10 transition-all">
+          <a href="resume.html" class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-500/30 hover:bg-emerald-50 dark:hover:bg-emerald-500/10 transition-all">
             Resume
           </a>
         </div>
 
         <div class="flex md:hidden items-center space-x-2">
-          <button type="button" class="theme-toggle-btn p-2 rounded-lg text-slate-600 dark:text-slate-400 bg-emerald-50 dark:bg-slate-800" aria-label="Toggle theme">
+          <button type="button" class="theme-toggle-btn p-2 rounded-lg text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800" aria-label="Toggle theme">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden dark:block text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
@@ -109,7 +124,7 @@
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
             </svg>
           </button>
-          <button type="button" id="mobile-menu-btn" class="p-2 rounded-lg text-slate-700 dark:text-slate-400 hover:bg-emerald-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
+          <button type="button" id="mobile-menu-btn" class="p-2 rounded-lg text-slate-700 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open navigation menu">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
@@ -118,19 +133,19 @@
       </div>
     </div>
 
-    <div id="mobile-menu" class="hidden md:hidden border-b border-emerald-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-6 space-y-3">
-      <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-slate-800">Home</a>
-      <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-slate-800">About</a>
-      <a href="experience.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-slate-800">Experience</a>
-      <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-800 dark:text-slate-200 hover:bg-emerald-50 dark:hover:bg-slate-800">Projects</a>
-      <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-slate-800">Contact</a>
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-6 space-y-3">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Home</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
+      <a href="experience.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Experience</a>
+      <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Projects</a>
+      <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
       <a href="resume.html" class="block px-3 py-2 rounded-md text-base font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 text-center mt-4">View Resume</a>
     </div>
   </header>
 
   <main id="main-content" class="flex-grow">
     
-    <section class="py-16 md:py-20 border-b border-emerald-100 dark:border-slate-800/60 bg-white dark:bg-slate-900/50">
+    <section class="py-16 md:py-20 border-b border-slate-200 dark:border-slate-800/60 bg-white dark:bg-slate-900/50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="max-w-3xl">
           <nav aria-label="Breadcrumb" class="mb-4">
@@ -153,24 +168,24 @@
     <section class="py-16">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-emerald-200 dark:border-slate-800" role="region" aria-label="Project Category Filter">
+        <div class="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-slate-200 dark:border-slate-800" role="region" aria-label="Project Category Filter">
           <button type="button" data-category="all" aria-pressed="true" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono font-semibold bg-emerald-600 text-white border border-emerald-600 transition-all">
             All Projects
           </button>
-          <button type="button" data-category="backend" aria-pressed="false" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-emerald-200 dark:border-slate-700 hover:border-emerald-400 transition-all">
+          <button type="button" data-category="backend" aria-pressed="false" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-emerald-500 transition-all">
             Backend & APIs
           </button>
-          <button type="button" data-category="fullstack" aria-pressed="false" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-emerald-200 dark:border-slate-700 hover:border-emerald-400 transition-all">
+          <button type="button" data-category="fullstack" aria-pressed="false" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-emerald-500 transition-all">
             Full-Stack / POS
           </button>
-          <button type="button" data-category="cms" aria-pressed="false" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-emerald-200 dark:border-slate-700 hover:border-emerald-400 transition-all">
+          <button type="button" data-category="cms" aria-pressed="false" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono font-semibold bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-emerald-500 transition-all">
             CMS & E-commerce
           </button>
         </div>
 
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
           
-          <article data-categories="fullstack backend" class="project-card tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-emerald-100 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all shadow-sm">
+          <article data-categories="fullstack backend" class="project-card tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all shadow-sm">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
                 <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 text-xs font-mono font-semibold">Full-Stack / POS</span>
@@ -183,9 +198,9 @@
                 Multi-outlet Point of Sale system managing inventory sync, kitchen display ordering, customer loyalty tracking, and billing APIs for retail and restaurant operations.
               </p>
               <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">Laravel 10</span>
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">MySQL Schema</span>
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">REST API</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">Laravel 10</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">MySQL Schema</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">REST API</span>
               </div>
             </div>
             <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
@@ -198,7 +213,7 @@
             </div>
           </article>
 
-          <article data-categories="backend" class="project-card tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-emerald-100 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all shadow-sm">
+          <article data-categories="backend" class="project-card tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all shadow-sm">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
                 <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 text-xs font-mono font-semibold">Backend API</span>
@@ -211,9 +226,9 @@
                 High-concurrency ticket locking engine avoiding double bookings during peak movie launches using Redis distributed locks and FastAPI async transactions.
               </p>
               <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">FastAPI</span>
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">Redis Lock</span>
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">PostgreSQL</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">FastAPI</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">Redis Lock</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">PostgreSQL</span>
               </div>
             </div>
             <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
@@ -226,7 +241,7 @@
             </div>
           </article>
 
-          <article data-categories="cms fullstack" class="project-card tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-emerald-100 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all shadow-sm">
+          <article data-categories="cms fullstack" class="project-card tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all shadow-sm">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
                 <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 text-xs font-mono font-semibold">CMS & E-commerce</span>
@@ -239,9 +254,9 @@
                 Enterprise content and product management system built with Wagtail Page Models and StreamField blocks for flexible catalog authoring.
               </p>
               <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">Wagtail CMS</span>
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">Django 5</span>
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">WooCommerce Sync</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">Wagtail CMS</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">Django 5</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">WooCommerce Sync</span>
               </div>
             </div>
             <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
@@ -254,7 +269,7 @@
             </div>
           </article>
 
-          <article data-categories="backend" class="project-card tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-emerald-100 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all shadow-sm">
+          <article data-categories="backend" class="project-card tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all shadow-sm">
             <div class="space-y-4">
               <div class="flex items-center justify-between">
                 <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 text-xs font-mono font-semibold">Real-Time System</span>
@@ -267,9 +282,9 @@
                 Sub-second bidding system with state machine validation, countdown timer state, WebSocket broadcast events, and automated winner settlement routines.
               </p>
               <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">Python Asyncio</span>
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">WebSockets</span>
-                <span class="px-2 py-0.5 rounded bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700">State Machine</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">Python Asyncio</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">WebSockets</span>
+                <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">State Machine</span>
               </div>
             </div>
             <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
@@ -288,7 +303,7 @@
 
   </main>
 
-  <footer class="bg-slate-100 dark:bg-slate-950 border-t border-emerald-200 dark:border-slate-800/80 py-12 text-sm text-slate-600 dark:text-slate-400 transition-colors">
+  <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800/80 py-12 text-sm text-slate-600 dark:text-slate-400 transition-colors">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="space-y-3 md:col-span-2">
@@ -320,7 +335,7 @@
         </div>
       </div>
 
-      <div class="mt-12 pt-6 border-t border-emerald-200 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
+      <div class="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
         <p>© <span class="current-year">2026</span> Soyal. All rights reserved.</p>
         <div class="flex items-center space-x-4">
           <a href="sitemap.xml" class="hover:text-slate-700 dark:hover:text-slate-400">Sitemap</a>

@@ -1,31 +1,52 @@
 /**
  * Main Application JS
- * Handles Theme Engine (Dark/Light/System) & global initializations.
- * Configured for Tailwind darkMode: 'class'.
+ * Handles Theme Engine (Dark / Light)
+ * Detects device system preference (Light vs Dark) on first visit,
+ * and allows user to toggle and save their preferred theme.
  */
 
 (function () {
   'use strict';
 
-  // Apply theme immediately before rendering to prevent FOUC
-  function applyTheme() {
+  function getInitialTheme() {
     const savedTheme = localStorage.getItem('theme');
-    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
-    // Default to dark mode if not specified, or if system prefers dark
-    const isDark = savedTheme ? savedTheme === 'dark' : systemPrefersDark;
-
-    if (isDark) {
-      document.documentElement.classList.add('dark');
-      document.documentElement.classList.remove('light');
-    } else {
-      document.documentElement.classList.remove('dark');
-      document.documentElement.classList.add('light');
+    if (savedTheme === 'light' || savedTheme === 'dark') {
+      return savedTheme;
     }
+    // If no saved theme, detect device/browser system preference
+    return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
-  applyTheme();
+  function applyTheme(theme) {
+    const root = document.documentElement;
+    if (theme === 'dark') {
+      root.classList.add('dark');
+      root.classList.remove('light');
+    } else {
+      root.classList.remove('dark');
+      root.classList.add('light');
+    }
+
+    updateToggleButtons(theme);
+  }
+
+  function updateToggleButtons(theme) {
+    const toggleBtns = document.querySelectorAll('.theme-toggle-btn');
+    if (!toggleBtns.length) return;
+
+    const nextThemeLabel = theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme';
+    toggleBtns.forEach(btn => {
+      btn.setAttribute('aria-label', nextThemeLabel);
+      btn.setAttribute('title', nextThemeLabel);
+    });
+  }
+
+  // Execute theme check immediately to prevent flashing
+  const currentTheme = getInitialTheme();
+  applyTheme(currentTheme);
 
   document.addEventListener('DOMContentLoaded', () => {
+    updateToggleButtons(getInitialTheme());
     initThemeToggle();
     updateCopyrightYear();
   });
@@ -36,19 +57,11 @@
 
     toggleBtns.forEach(btn => {
       btn.addEventListener('click', () => {
-        const isDark = document.documentElement.classList.contains('dark');
-        const nextTheme = isDark ? 'light' : 'dark';
+        const isCurrentlyDark = document.documentElement.classList.contains('dark');
+        const nextTheme = isCurrentlyDark ? 'light' : 'dark';
 
-        if (nextTheme === 'dark') {
-          document.documentElement.classList.add('dark');
-          document.documentElement.classList.remove('light');
-        } else {
-          document.documentElement.classList.remove('dark');
-          document.documentElement.classList.add('light');
-        }
-
+        applyTheme(nextTheme);
         localStorage.setItem('theme', nextTheme);
-        btn.setAttribute('aria-label', `Switch to ${isDark ? 'dark' : 'light'} theme`);
       });
     });
   }
