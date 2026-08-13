@@ -1,0 +1,12 @@
+{% load wagtailcore_tags %}
+<nav aria-label="Breadcrumb" class="mb-4">
+  <ol class="flex items-center space-x-2 text-xs font-mono text-slate-500 dark:text-slate-400">
+    <li><a href="{{ nav_pages.home.url|default:'/' }}" class="hover:text-emerald-600 dark:hover:text-emerald-400">Home</a></li>
+    {% for ancestor in page.get_ancestors|slice:"2:" %}
+    <li><span class="text-slate-400 dark:text-slate-600">/</span></li>
+    <li><a href="{{ ancestor.url }}" class="hover:text-emerald-600 dark:hover:text-emerald-400">{{ ancestor.title }}</a></li>
+    {% endfor %}
+    <li><span class="text-slate-400 dark:text-slate-600">/</span></li>
+    <li class="text-emerald-700 dark:text-emerald-400 font-semibold" aria-current="page">{{ page.title }}</li>
+  </ol>
+</nav>

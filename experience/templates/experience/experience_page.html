@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block json_ld %}<script type="application/ld+json">{% include "partials/_json_ld_breadcrumbs.html" %}</script>{% endblock %}
+
+{% block content %}
+<section class="py-16 border-b border-slate-200 dark:border-slate-800/60 bg-white dark:bg-slate-900/50">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+    {% include "partials/_breadcrumbs.html" %}
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-100">{{ page.intro_heading }}</h1>
+    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">{{ page.intro_text }}</p>
+  </div>
+</section>
+
+<section class="py-16">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="space-y-12 relative before:absolute before:inset-0 before:left-4 md:before:left-1/2 before:-translate-x-px before:w-0.5 before:bg-slate-200 dark:before:bg-slate-800">
+      {% for entry in page.entries.all %}
+      <div class="relative flex items-start group">
+        <div class="hidden md:flex items-center justify-end w-1/2 pr-8 text-right">
+          <div>
+            {% if entry.is_current %}
+            <span class="px-2.5 py-1 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 text-xs font-mono font-semibold">{{ entry.date_range }}</span>
+            {% else %}
+            <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-mono font-semibold">{{ entry.date_range }}</span>
+            {% endif %}
+            <p class="text-xs text-slate-500 dark:text-slate-400 mt-1 font-mono">{{ entry.location }}</p>
+          </div>
+        </div>
+
+        <div class="absolute left-4 md:left-1/2 -translate-x-1/2 w-4 h-4 rounded-full bg-white dark:bg-slate-900 border-2 {% if entry.is_current %}border-emerald-600 dark:border-emerald-500{% else %}border-slate-400 dark:border-slate-600{% endif %} group-hover:scale-125 transition-transform z-10"></div>
+
+        <div class="pl-12 md:pl-8 md:w-1/2">
+          <div class="tech-card p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-3 shadow-sm">
+            <div class="md:hidden flex items-center justify-between mb-2">
+              {% if entry.is_current %}
+              <span class="px-2.5 py-1 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 text-xs font-mono font-semibold">{{ entry.date_range }}</span>
+              {% else %}
+              <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 text-xs font-mono font-semibold">{{ entry.date_range }}</span>
+              {% endif %}
+            </div>
+            <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100">{{ entry.role_title }}</h2>
+            <h3 class="text-sm font-semibold text-emerald-700 dark:text-emerald-400">{{ entry.company_name }}</h3>
+            <ul class="space-y-2 text-xs text-slate-700 dark:text-slate-300 leading-relaxed list-disc list-inside">
+              {% for bullet in entry.bullet_list %}<li>{{ bullet }}</li>{% endfor %}
+            </ul>
+            <div class="pt-3 border-t border-slate-200 dark:border-slate-800 flex flex-wrap gap-1.5 text-[11px] font-mono text-slate-700 dark:text-slate-400">
+              {% for tag in entry.tech_tag_list %}<span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700">{{ tag }}</span>{% endfor %}
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/animations.js' %}"></script>
+{% endblock %}

@@ -1,0 +1,6 @@
+Django>=5.2,<5.3
+wagtail>=7.4,<7.5
+django-taggit>=6.1,<7
+whitenoise>=6.12,<7
+django-environ>=0.14,<1
+Pygments>=2.20,<3

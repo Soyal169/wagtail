@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block json_ld %}<script type="application/ld+json">{% include "partials/_json_ld_breadcrumbs.html" %}</script>{% endblock %}
+
+{% block content %}
+<section class="py-16 border-b border-slate-200 dark:border-slate-800/60 bg-white dark:bg-slate-900/50">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+    {% include "partials/_breadcrumbs.html" %}
+    <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{{ page.intro_eyebrow }}</span>
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-100">{{ page.intro_heading }}</h1>
+    <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">{{ page.intro_text }}</p>
+  </div>
+</section>
+
+<section class="py-16">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-wrap items-center gap-2 mb-10 pb-4 border-b border-slate-200 dark:border-slate-800" role="region" aria-label="Project Category Filter">
+      <button type="button" data-category="all" aria-pressed="true" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono font-semibold bg-emerald-500 text-white border border-emerald-500 transition-all">All Projects</button>
+      {% for category in categories %}
+      <button type="button" data-category="{{ category.slug }}" aria-pressed="false" class="filter-btn px-4 py-2 rounded-lg text-xs font-mono font-semibold bg-slate-800 text-slate-300 border border-slate-700 hover:border-slate-500 transition-all">{{ category.name }}</button>
+      {% endfor %}
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" id="projects-grid">
+      {% for project in projects %}
+      <article data-categories="{{ project.category_slugs }}" class="project-card tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all shadow-sm">
+        <div class="space-y-4">
+          <div class="flex items-center justify-between">
+            <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 text-xs font-mono font-semibold">{{ project.badge_label }}</span>
+            <span class="text-xs text-slate-500 font-mono">{{ project.tech_stack_summary }}</span>
+          </div>
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
+            <a href="{% pageurl project %}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">{{ project.title }}</a>
+          </h2>
+          <div class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">{{ project.summary|richtext }}</div>
+          <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
+            {% for chip in project.tech_chip_list %}
+            <span class="px-2 py-0.5 rounded bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">{{ chip }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
+          <a href="{% pageurl project %}" class="text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1">
+            Read {{ project.title }} Case Study
+            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L15.586 11H3a1 1 0 110-2h12.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+          </a>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/projects.js' %}"></script>
+{% endblock %}

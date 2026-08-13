@@ -1,0 +1,18 @@
+{% load static wagtailcore_tags wagtailuserbar %}<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  {% include "partials/_theme_script.html" %}
+  {% include "partials/_head.html" %}
+</head>
+<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen flex flex-col {% block body_class %}{% endblock %}">
+  {% wagtailuserbar %}
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+  {% include "partials/_header.html" %}
+  <main id="main-content" class="flex-grow">
+    {% block content %}{% endblock %}
+  </main>
+  {% include "partials/_footer.html" %}
+  {% include "partials/_scripts.html" %}
+  {% block extra_js %}{% endblock %}
+</body>
+</html>

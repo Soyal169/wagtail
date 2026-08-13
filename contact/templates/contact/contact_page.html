@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+{% load static wagtailcore_tags %}
+
+{% block json_ld %}<script type="application/ld+json">{% include "partials/_json_ld_breadcrumbs.html" %}</script>{% endblock %}
+
+{% block content %}
+<section class="py-16 border-b border-slate-200 dark:border-slate-800/60 bg-white dark:bg-slate-900/50">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+    {% include "partials/_breadcrumbs.html" %}
+    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-100">Get In Touch</h1>
+  </div>
+</section>
+
+<section class="py-16">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12">
+    <div class="space-y-6">
+      <h2 class="text-xl font-bold text-slate-900 dark:text-slate-100">{{ page.intro_heading }}</h2>
+      <div class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">{{ page.intro_text|richtext }}</div>
+
+      <div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
+        </div>
+        <div>
+          <span class="text-xs text-slate-500 font-mono block">Direct Email</span>
+          <a href="mailto:{{ settings.core.SiteBrandSettings.contact_email }}" class="font-semibold text-slate-900 dark:text-slate-100 hover:text-emerald-600 dark:hover:text-emerald-400">{{ settings.core.SiteBrandSettings.contact_email }}</a>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a2 2 0 01-2.828 0l-4.243-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+        </div>
+        <div>
+          <span class="text-xs text-slate-500 font-mono block">Location</span>
+          <span class="font-semibold text-slate-900 dark:text-slate-100">{{ settings.core.SiteBrandSettings.location }}</span>
+        </div>
+      </div>
+      <div class="flex items-start gap-4 p-4 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800">
+        <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-400 flex items-center justify-center shrink-0">
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+        </div>
+        <div>
+          <span class="text-xs text-slate-500 font-mono block">Role Availability</span>
+          <span class="font-semibold text-emerald-600 dark:text-emerald-400">{{ settings.core.SiteBrandSettings.availability_status }}</span>
+        </div>
+      </div>
+    </div>
+
+    <form id="portfolio-contact-form" method="POST" action="{{ page.url }}" class="tech-card p-8 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-6 shadow-sm" novalidate>
+      {% csrf_token %}
+      <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 border-b border-slate-200 dark:border-slate-800 pb-4">Send a Message</h3>
+
+      <div id="form-feedback" class="{% if not feedback %}hidden{% else %}mt-0 p-3 rounded-lg text-sm font-medium border {% if feedback.type == 'success' %}bg-emerald-900/40 text-emerald-300 border-emerald-800{% else %}bg-red-900/40 text-red-300 border-red-800{% endif %}{% endif %}" role="alert">{% if feedback %}{{ feedback.text }}{% endif %}</div>
+
+      <div class="hidden" aria-hidden="true">{{ form.company }}</div>
+
+      <div>
+        <label for="form-name" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Full Name *</label>
+        <input type="text" id="form-name" name="name" required value="{{ form.name.value|default:'' }}" placeholder="e.g. Alex Morgan"
+               aria-invalid="{% if form.name.errors %}true{% else %}false{% endif %}"
+               class="w-full px-4 py-2.5 rounded-lg bg-white dark:bg-slate-950 border {% if form.name.errors %}border-red-500{% else %}border-slate-300 dark:border-slate-700{% endif %} text-slate-900 dark:text-slate-100 text-sm placeholder-slate-400 focus:border-emerald-500 focus:outline-none transition-colors">
+        {% if form.name.errors %}<p class="text-xs text-red-500 mt-1">{{ form.name.errors.0 }}</p>{% endif %}
+      </div>
+
+      <div>
+        <label for="form-email" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Email Address *</label>
+        <input type="email" id="form-email" name="email" required value="{{ form.email.value|default:'' }}" placeholder="alex@company.com"
+               aria-invalid="{% if form.email.errors %}true{% else %}false{% endif %}"
+               class="w-full px-4 py-2.5 rounded-lg bg-white dark:bg-slate-950 border {% if form.email.errors %}border-red-500{% else %}border-slate-300 dark:border-slate-700{% endif %} text-slate-900 dark:text-slate-100 text-sm placeholder-slate-400 focus:border-emerald-500 focus:outline-none transition-colors">
+        {% if form.email.errors %}<p class="text-xs text-red-500 mt-1">{{ form.email.errors.0 }}</p>{% endif %}
+      </div>
+
+      <div>
+        <label for="form-subject" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Subject</label>
+        <input type="text" id="form-subject" name="subject" value="{{ form.subject.value|default:'' }}" placeholder="e.g. Senior Backend Role / Wagtail Migration"
+               class="w-full px-4 py-2.5 rounded-lg bg-white dark:bg-slate-950 border border-slate-300 dark:border-slate-700 text-slate-900 dark:text-slate-100 text-sm placeholder-slate-400 focus:border-emerald-500 focus:outline-none transition-colors">
+      </div>
+
+      <div>
+        <label for="form-message" class="block text-sm font-semibold text-slate-700 dark:text-slate-300 mb-1.5">Message *</label>
+        <textarea id="form-message" name="message" rows="5" required placeholder="Tell me about your project, engineering requirements, or opportunity..."
+                  aria-invalid="{% if form.message.errors %}true{% else %}false{% endif %}"
+                  class="w-full px-4 py-2.5 rounded-lg bg-white dark:bg-slate-950 border {% if form.message.errors %}border-red-500{% else %}border-slate-300 dark:border-slate-700{% endif %} text-slate-900 dark:text-slate-100 text-sm placeholder-slate-400 focus:border-emerald-500 focus:outline-none transition-colors">{{ form.message.value|default:'' }}</textarea>
+        {% if form.message.errors %}<p class="text-xs text-red-500 mt-1">{{ form.message.errors.0 }}</p>{% endif %}
+      </div>
+
+      <button type="submit" class="w-full py-3.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-all shadow-lg shadow-emerald-600/20 text-sm">Submit Message</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/contact.js' %}"></script>
+{% endblock %}

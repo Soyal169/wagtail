@@ -1,0 +1,14 @@
+<div class="p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
+  <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 block mb-4">System Flow Diagram</span>
+  <div class="flex flex-wrap items-center gap-3">
+    {% for node in value.nodes %}
+    {% if not forloop.first %}
+    <svg class="w-5 h-5 text-slate-400 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L15.586 11H3a1 1 0 110-2h12.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+    {% endif %}
+    <div class="px-4 py-3 rounded-lg bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-center">
+      <span class="block text-sm font-bold text-slate-900 dark:text-slate-100">{{ node.label }}</span>
+      {% if node.sublabel %}<span class="block text-xs text-slate-500 dark:text-slate-400 font-mono mt-0.5">{{ node.sublabel }}</span>{% endif %}
+    </div>
+    {% endfor %}
+  </div>
+</div>

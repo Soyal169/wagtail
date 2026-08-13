@@ -1,0 +1,40 @@
+{% load static %}
+<footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12 text-sm">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div class="md:col-span-2 space-y-3">
+        <a href="{{ nav_pages.home.url|default:'/' }}" class="font-bold text-lg text-slate-900 dark:text-slate-100 tracking-tight">Soyal<span class="text-emerald-600 dark:text-emerald-500">.dev</span></a>
+        <p class="text-slate-600 dark:text-slate-400 max-w-md leading-relaxed">{{ settings.core.SiteBrandSettings.footer_blurb }}</p>
+        <p class="text-slate-500 dark:text-slate-500 font-mono text-xs">{{ settings.core.SiteBrandSettings.location }}</p>
+      </div>
+      <div>
+        <h3 class="font-semibold text-slate-900 dark:text-slate-100 mb-3">Site Links</h3>
+        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+          {% for title, link_page in nav_links %}
+          {% if link_page and title != "Home" %}
+          <li><a href="{{ link_page.url }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">{{ title }}</a></li>
+          {% endif %}
+          {% endfor %}
+          {% if nav_pages.resume %}
+          <li><a href="{{ nav_pages.resume.url }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Resume</a></li>
+          {% endif %}
+        </ul>
+      </div>
+      <div>
+        <h3 class="font-semibold text-slate-900 dark:text-slate-100 mb-3">Profiles</h3>
+        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+          <li><a href="{{ settings.core.SiteBrandSettings.github_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">GitHub</a></li>
+          <li><a href="{{ settings.core.SiteBrandSettings.linkedin_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">LinkedIn</a></li>
+          <li><a href="mailto:{{ settings.core.SiteBrandSettings.contact_email }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">{{ settings.core.SiteBrandSettings.contact_email }}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-500">
+      <p>&copy; <span class="current-year">2026</span> {{ settings.core.SiteBrandSettings.site_name }}. All rights reserved.</p>
+      <div class="flex items-center gap-4">
+        <a href="/sitemap.xml" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Sitemap</a>
+        <a href="/robots.txt" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Robots.txt</a>
+      </div>
+    </div>
+  </div>
+</footer>

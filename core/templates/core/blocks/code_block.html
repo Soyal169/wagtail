@@ -1,0 +1,4 @@
+{% if value.filename %}
+<div class="rounded-t-xl bg-slate-950 border border-b-0 border-slate-800 px-4 py-2 text-xs font-mono text-slate-400">{{ value.filename }}</div>
+{% endif %}
+<div class="p-6 {% if value.filename %}rounded-b-xl{% else %}rounded-xl{% endif %} bg-slate-900 dark:bg-slate-950 border border-slate-800 font-mono text-xs overflow-x-auto pygments-code">{{ highlighted_code }}</div>
