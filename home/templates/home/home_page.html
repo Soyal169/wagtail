@@ -73,6 +73,25 @@
             <span>{{ settings.core.SiteBrandSettings.contact_email }}</span>
             <span class="text-[10px]">✉</span>
           </a>
+          
+        </div>
+              <div class="terminal-window max-w-sm mx-auto lg:max-w-none text-xs">
+          <div class="terminal-header">
+            <div class="flex items-center space-x-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+            </div>
+            <span class="text-[11px] text-slate-400">{{ page.terminal_filename }}</span>
+          </div>
+          <div class="p-3.5 space-y-1 font-mono text-[11px] text-slate-300">
+            {% for row in page.terminal_rows.all %}
+            <div>
+              <span class="text-slate-500">"{{ row.key }}":</span>
+              <span class="{% if row.accent == 'amber' %}text-amber-300{% elif row.accent == 'teal' %}text-teal-300{% elif row.accent == 'purple' %}text-purple-300{% else %}text-emerald-400{% endif %}">"{{ row.value }}"</span>{% if not forloop.last %},{% endif %}
+            </div>
+            {% endfor %}
+          </div>
         </div>
       </div>
 
@@ -105,24 +124,6 @@
         </div>
         {% endif %}
 
-        <div class="terminal-window max-w-sm mx-auto lg:max-w-none text-xs">
-          <div class="terminal-header">
-            <div class="flex items-center space-x-1.5">
-              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
-            </div>
-            <span class="text-[11px] text-slate-400">{{ page.terminal_filename }}</span>
-          </div>
-          <div class="p-3.5 space-y-1 font-mono text-[11px] text-slate-300">
-            {% for row in page.terminal_rows.all %}
-            <div>
-              <span class="text-slate-500">"{{ row.key }}":</span>
-              <span class="{% if row.accent == 'amber' %}text-amber-300{% elif row.accent == 'teal' %}text-teal-300{% elif row.accent == 'purple' %}text-purple-300{% else %}text-emerald-400{% endif %}">"{{ row.value }}"</span>{% if not forloop.last %},{% endif %}
-            </div>
-            {% endfor %}
-          </div>
-        </div>
       </div>
 
     </div>
