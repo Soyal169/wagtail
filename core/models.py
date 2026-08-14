@@ -46,6 +46,26 @@ class SiteBrandSettings(BaseSiteSetting):
         max_length=160, default="Soyal Engineering Portfolio"
     )
 
+    portrait = models.ForeignKey(
+        "wagtailimages.Image",
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name="+",
+        help_text="Editorial portrait used on the home hero and About sidebar.",
+    )
+    portrait_caption = models.CharField(
+        max_length=60,
+        default="soyal.portrait",
+        help_text="Left caption in the portrait frame's header bar.",
+    )
+    coordinates = models.CharField(
+        max_length=60,
+        default="27.7172° N, 85.3240° E",
+        help_text="Right caption on the home hero portrait frame.",
+    )
+    timezone_label = models.CharField(max_length=30, default="UTC+5:45")
+
     panels = [
         MultiFieldPanel(
             [
@@ -53,6 +73,7 @@ class SiteBrandSettings(BaseSiteSetting):
                 FieldPanel("tagline"),
                 FieldPanel("footer_blurb"),
                 FieldPanel("location"),
+                FieldPanel("timezone_label"),
                 FieldPanel("availability_status"),
             ],
             heading="Brand",
@@ -73,6 +94,14 @@ class SiteBrandSettings(BaseSiteSetting):
                 FieldPanel("org_name"),
             ],
             heading="Structured data (SEO)",
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel("portrait"),
+                FieldPanel("portrait_caption"),
+                FieldPanel("coordinates"),
+            ],
+            heading="Portrait",
         ),
     ]
 

@@ -4,7 +4,7 @@
   {% include "partials/_theme_script.html" %}
   {% include "partials/_head.html" %}
 </head>
-<body class="bg-[var(--bg-primary)] text-[var(--text-primary)] min-h-screen flex flex-col {% block body_class %}{% endblock %}">
+<body class="bg-slate-50 text-slate-900 dark:bg-[#090d16] dark:text-slate-100 min-h-screen flex flex-col antialiased transition-colors duration-200 bg-dev-grid {% block body_class %}{% endblock %}">
   {% wagtailuserbar %}
   <a href="#main-content" class="skip-link">Skip to main content</a>
   {% include "partials/_header.html" %}

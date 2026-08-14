@@ -27,7 +27,7 @@ def site_brand(request):
         ("About", nav_pages["about"]),
         ("Experience", nav_pages["experience"]),
         ("Projects", nav_pages["projects"]),
-        ("Blog", nav_pages["blog"]),
+        ("Notes", nav_pages["blog"]),
         ("Contact", nav_pages["contact"]),
     ]
 

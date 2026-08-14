@@ -98,6 +98,10 @@ class BlogPostPage(Page):
     date_published = models.DateField()
     read_minutes = models.PositiveIntegerField(default=5)
     featured = models.BooleanField(default=False)
+    show_toc = models.BooleanField(
+        default=False,
+        help_text="Show the sticky table of contents sidebar (long guides only).",
+    )
 
     body = StreamField(ArticleBodyBlock(), blank=True, use_json_field=True)
 
@@ -114,13 +118,10 @@ class BlogPostPage(Page):
         FieldPanel("date_published"),
         FieldPanel("read_minutes"),
         FieldPanel("featured"),
+        FieldPanel("show_toc"),
         FieldPanel("body"),
     ]
 
     @property
     def category_slugs(self):
         return " ".join(self.categories.values_list("slug", flat=True))
-
-    @property
-    def heading_count(self):
-        return sum(1 for block in self.body if block.block_type == "heading")

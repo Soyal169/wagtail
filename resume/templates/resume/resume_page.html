@@ -7,16 +7,16 @@
 <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
   <div class="no-print flex flex-col sm:flex-row items-center justify-between gap-4 mb-8 pb-6 border-b border-slate-200 dark:border-slate-800">
     <div>
+      <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Curriculum Vitae</span>
       <h1 class="text-2xl font-bold text-slate-900 dark:text-slate-100">Technical Resume</h1>
-      <p class="text-sm text-slate-500 dark:text-slate-400">A print-friendly summary of my experience and skills.</p>
     </div>
     <button type="button" onclick="window.print()" class="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-all text-sm inline-flex items-center gap-2 whitespace-nowrap">
       <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M6 9V2h12v7M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2M6 14h12v8H6v-8z" /></svg>
-      Print / Save as PDF
+      Print / Save PDF
     </button>
   </div>
 
-  <div class="tech-card p-8 md:p-12 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-8 shadow-sm">
+  <div class="dev-card p-8 md:p-12 rounded-xl space-y-8">
     <div>
       <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100">{{ page.full_name }}</h2>
       <p class="text-emerald-700 dark:text-emerald-400 font-semibold">{{ page.tagline }}</p>
@@ -65,7 +65,8 @@
     <div class="space-y-3">
       <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 border-b border-slate-200 dark:border-slate-800 pb-2">Education</h3>
       <div class="flex items-center justify-between text-sm text-slate-700 dark:text-slate-300">
-        <span>{{ page.education_line }}</span>
+        <span><strong>{{ page.education_line }}</strong></span>
+        <span class="font-mono text-slate-500 dark:text-slate-400 text-xs">{{ page.education_location }}</span>
       </div>
     </div>
   </div>

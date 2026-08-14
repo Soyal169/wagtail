@@ -1,68 +1,113 @@
 {% extends "base.html" %}
-{% load static wagtailcore_tags %}
+{% load static wagtailcore_tags wagtailimages_tags %}
 
 {% block json_ld %}<script type="application/ld+json">{% include "partials/_json_ld_breadcrumbs.html" %}</script>{% endblock %}
 
 {% block content %}
-<section class="py-16 border-b border-slate-200 dark:border-slate-800/60 bg-white dark:bg-slate-900/50">
-  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-    {% include "partials/_breadcrumbs.html" %}
-    <h1 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-slate-900 dark:text-slate-100">{{ page.intro_heading }}</h1>
-    <div class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">{{ page.intro_text|richtext }}</div>
+<!-- Page intro -->
+<section class="py-14 md:py-20 border-b border-slate-200 dark:border-slate-800/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl">
+      {% include "partials/_breadcrumbs.html" %}
+      <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{{ page.intro_eyebrow }}</span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight leading-tight mt-1">{{ page.intro_heading }}</h1>
+      <div class="text-base sm:text-lg text-slate-600 dark:text-slate-300 mt-4 leading-relaxed">{{ page.intro_text|richtext }}</div>
+    </div>
   </div>
 </section>
 
-<section class="py-16">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12">
-    <div class="lg:col-span-8 space-y-6">
-      <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100">{{ page.bio_heading }}</h2>
-      <div class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed space-y-4">
-        {{ page.bio_paragraph_1|richtext }}
-        {{ page.bio_paragraph_2|richtext }}
-      </div>
-      <div class="p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 block mb-3"># Core Technical Focus</span>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
-          {% for item in page.checklist_items.all %}
-          <div class="flex items-center gap-2 text-sm text-slate-700 dark:text-slate-300">
-            <span class="text-emerald-500 font-bold">✓</span> {{ item.text }}
-          </div>
-          {% endfor %}
+<!-- Bio, story & perspective -->
+<section class="py-16 border-b border-slate-200 dark:border-slate-800/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+
+      <div class="lg:col-span-7 space-y-8 text-slate-700 dark:text-slate-300 leading-relaxed text-sm sm:text-base">
+        {% for block in page.narrative_blocks.all %}
+        <section class="space-y-4">
+          {% if forloop.first %}
+          <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100 font-sans">{{ block.heading }}</h2>
+          {% else %}
+          <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100 font-sans">{{ block.heading }}</h3>
+          {% endif %}
+          {{ block.body|richtext }}
+        </section>
+        {% endfor %}
+
+        <div class="p-6 rounded-xl bg-slate-100/70 dark:bg-[#0b1120] border border-slate-200 dark:border-slate-800 space-y-3 font-mono text-xs">
+          <span class="text-emerald-600 dark:text-emerald-400 font-bold block">{{ page.principles_heading }}</span>
+          <ul class="space-y-2 text-slate-700 dark:text-slate-300">
+            {% for item in page.checklist_items.all %}
+            <li>• {{ item.text }}</li>
+            {% endfor %}
+          </ul>
         </div>
       </div>
-      <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">{{ page.mindset_heading }}</h3>
-      <div class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">{{ page.mindset_text|richtext }}</div>
-    </div>
 
-    <aside class="lg:col-span-4">
-      <div class="sticky top-24 p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 space-y-4 shadow-sm">
-        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400 block">{{ page.quick_facts_heading }}</span>
-        <dl class="space-y-3 text-sm">
-          {% for fact in page.quick_facts.all %}
-          <div>
-            <dt class="text-slate-500 dark:text-slate-400 text-xs font-mono">{{ fact.label }}</dt>
-            <dd class="text-slate-900 dark:text-slate-100 font-semibold">{{ fact.value }}</dd>
+      <div class="lg:col-span-5 space-y-6">
+        {% if settings.core.SiteBrandSettings.portrait %}
+        {% image settings.core.SiteBrandSettings.portrait fill-800x800 as portrait_img %}
+        <div class="portrait-frame p-2 bg-white dark:bg-[#0f172a]">
+          <div class="px-3 py-2 bg-slate-100 dark:bg-[#162032] rounded-t-lg border-b border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500">
+            <span>{{ settings.core.SiteBrandSettings.portrait_caption }}</span>
+            <span>{{ settings.core.SiteBrandSettings.location }}</span>
           </div>
-          {% endfor %}
-        </dl>
-        <a href="{{ nav_pages.contact.url }}" class="block text-center px-4 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold transition-all">Let's Discuss Opportunities</a>
+          <div class="aspect-square overflow-hidden rounded-b-lg bg-slate-900">
+            <img
+              src="{{ portrait_img.url }}"
+              alt="{{ settings.core.SiteBrandSettings.portrait.default_alt_text }}"
+              class="w-full h-full object-cover object-top"
+            >
+          </div>
+        </div>
+        {% endif %}
+
+        <div class="dev-card p-6 rounded-xl space-y-4">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Profile Snapshot</h3>
+          <div class="space-y-2.5 text-xs font-mono">
+            {% for fact in page.quick_facts.all %}
+            <div class="{% if not forloop.last %}border-b border-slate-100 dark:border-slate-800 pb-2{% endif %}">
+              <span class="text-slate-500 block text-[11px]">{{ fact.label }}</span>
+              <span class="{% if fact.accent %}text-emerald-600 dark:text-emerald-400{% else %}text-slate-800 dark:text-slate-200{% endif %} font-semibold">{{ fact.value }}</span>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="pt-3 border-t border-slate-200 dark:border-slate-800">
+            <a href="{{ nav_pages.contact.url }}" class="block w-full py-2.5 rounded-lg bg-emerald-600 text-white text-center font-semibold hover:bg-emerald-500 transition-colors text-xs font-mono shadow-sm">
+              {{ page.snapshot_cta_label }}
+            </a>
+          </div>
+        </div>
+
+        <div class="dev-card p-6 rounded-xl space-y-3">
+          <h3 class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{{ page.workspace_heading }}</h3>
+          <ul class="space-y-2 text-xs font-mono text-slate-700 dark:text-slate-300">
+            {% for row in page.workspace_rows.all %}
+            <li><span class="text-slate-500">{{ row.label }}:</span> {{ row.value }}</li>
+            {% endfor %}
+          </ul>
+        </div>
       </div>
-    </aside>
+
+    </div>
   </div>
 </section>
 
-<section class="py-16 md:py-24 bg-white dark:bg-slate-900/40 border-t border-slate-200 dark:border-slate-800">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-2xl mb-12 space-y-2">
-      <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{{ page.capabilities_eyebrow }}</span>
-      <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">{{ page.capabilities_heading }}</h2>
-    </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+<!-- Technical inventory -->
+<section class="py-16 bg-slate-100/40 dark:bg-slate-900/20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{{ page.capabilities_eyebrow }}</span>
+    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 dark:text-slate-100 mt-1 mb-8">{{ page.capabilities_heading }}</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {% for category in page.skill_categories.all %}
-      <div class="tech-card p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-        <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-400 flex items-center justify-center font-bold font-mono text-sm mb-4">{{ category.badge }}</div>
-        <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100 mb-2">{{ category.title }}</h3>
-        <div class="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{{ category.items|richtext }}</div>
+      <div class="dev-card p-6 rounded-xl space-y-3">
+        <h3 class="font-bold text-slate-900 dark:text-slate-100 text-base flex items-center gap-2">
+          <span class="text-emerald-600 dark:text-emerald-400 font-mono">{{ category.badge }}</span> {{ category.title }}
+        </h3>
+        <p class="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">{{ category.description }}</p>
+        <div class="flex flex-wrap gap-1.5 pt-2">
+          {% for chip in category.chip_list %}<span class="dev-badge-neutral">{{ chip }}</span>{% endfor %}
+        </div>
       </div>
       {% endfor %}
     </div>

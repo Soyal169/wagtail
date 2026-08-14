@@ -3,7 +3,7 @@ from django.core.mail import send_mail
 from django.db import models
 from django.shortcuts import render
 
-from wagtail.admin.panels import FieldPanel
+from wagtail.admin.panels import FieldPanel, MultiFieldPanel
 from wagtail.fields import RichTextField
 from wagtail.models import Page
 
@@ -31,10 +31,28 @@ class ContactPage(Page):
     parent_page_types = ["home.HomePage"]
     subpage_types = []
 
-    intro_heading = models.CharField(max_length=160, default="Direct Contact Details")
+    intro_eyebrow = models.CharField(max_length=80, default="Get In Touch")
+    intro_heading = models.CharField(max_length=160, default="Let's Talk Code & Projects")
     intro_text = RichTextField(
-        default="<p>Reach out about roles, freelance projects, or technical collaboration.</p>",
+        default=(
+            "<p>Have a backend project idea, need Wagtail CMS integration, or "
+            "want to discuss a senior engineering opportunity? Reach out "
+            "directly or fill out the form below.</p>"
+        ),
         features=["bold", "italic", "link"],
+    )
+    direct_heading = models.CharField(max_length=80, default="Direct Communication")
+    direct_text = RichTextField(
+        default=(
+            "<p>I prefer direct, clear communication. I am based in "
+            "Kathmandu, Nepal (UTC+5:45) and generally respond to all "
+            "messages within 24 hours.</p>"
+        ),
+        features=["bold", "italic", "link"],
+    )
+    timezone_detail = models.CharField(
+        max_length=160,
+        default="Nepal Time (NPT, UTC+5:45) • Available for Remote Teams",
     )
     success_message = models.CharField(
         max_length=200,
@@ -42,8 +60,22 @@ class ContactPage(Page):
     )
 
     content_panels = Page.content_panels + [
-        FieldPanel("intro_heading"),
-        FieldPanel("intro_text"),
+        MultiFieldPanel(
+            [
+                FieldPanel("intro_eyebrow"),
+                FieldPanel("intro_heading"),
+                FieldPanel("intro_text"),
+            ],
+            heading="Page intro",
+        ),
+        MultiFieldPanel(
+            [
+                FieldPanel("direct_heading"),
+                FieldPanel("direct_text"),
+                FieldPanel("timezone_detail"),
+            ],
+            heading="Direct communication panel",
+        ),
         FieldPanel("success_message"),
     ]
 

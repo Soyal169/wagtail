@@ -11,10 +11,15 @@ module.exports = {
     './contact/templates/**/*.html',
     './resume/templates/**/*.html',
     './search/templates/**/*.html',
+    './core/templatetags/*.py',
   ],
   darkMode: 'class',
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+      },
       colors: {
         emerald: {
           50: '#f0fdf4',

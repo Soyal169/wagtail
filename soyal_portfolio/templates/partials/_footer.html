@@ -1,15 +1,15 @@
 {% load static %}
-<footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800 py-12 text-sm">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<footer class="bg-white dark:bg-[#090d16] border-t border-slate-200 dark:border-slate-800/80 py-12 text-sm text-slate-600 dark:text-slate-400 transition-colors">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
       <div class="md:col-span-2 space-y-3">
-        <a href="{{ nav_pages.home.url|default:'/' }}" class="font-bold text-lg text-slate-900 dark:text-slate-100 tracking-tight">Soyal<span class="text-emerald-600 dark:text-emerald-500">.dev</span></a>
-        <p class="text-slate-600 dark:text-slate-400 max-w-md leading-relaxed">{{ settings.core.SiteBrandSettings.footer_blurb }}</p>
-        <p class="text-slate-500 dark:text-slate-500 font-mono text-xs">{{ settings.core.SiteBrandSettings.location }}</p>
+        <a href="{{ nav_pages.home.url|default:'/' }}" class="font-bold text-base text-slate-900 dark:text-slate-100 font-mono">soyal<span class="text-emerald-600 dark:text-emerald-400">.dev</span></a>
+        <p class="text-xs leading-relaxed max-w-sm">{{ settings.core.SiteBrandSettings.footer_blurb }}</p>
+        <p class="text-xs font-mono text-slate-500">{{ settings.core.SiteBrandSettings.location }}</p>
       </div>
-      <div>
-        <h3 class="font-semibold text-slate-900 dark:text-slate-100 mb-3">Site Links</h3>
-        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
+      <div class="space-y-2">
+        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-800 dark:text-slate-300 block mb-3">Navigation</span>
+        <ul class="space-y-2 text-xs">
           {% for title, link_page in nav_links %}
           {% if link_page and title != "Home" %}
           <li><a href="{{ link_page.url }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">{{ title }}</a></li>
@@ -20,20 +20,20 @@
           {% endif %}
         </ul>
       </div>
-      <div>
-        <h3 class="font-semibold text-slate-900 dark:text-slate-100 mb-3">Profiles</h3>
-        <ul class="space-y-2 text-slate-600 dark:text-slate-400">
-          <li><a href="{{ settings.core.SiteBrandSettings.github_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">GitHub</a></li>
-          <li><a href="{{ settings.core.SiteBrandSettings.linkedin_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">LinkedIn</a></li>
-          <li><a href="mailto:{{ settings.core.SiteBrandSettings.contact_email }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">{{ settings.core.SiteBrandSettings.contact_email }}</a></li>
+      <div class="space-y-2">
+        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-800 dark:text-slate-300 block mb-3">Profiles</span>
+        <ul class="space-y-2 text-xs">
+          <li><a href="{{ settings.core.SiteBrandSettings.github_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">GitHub Profile</a></li>
+          <li><a href="{{ settings.core.SiteBrandSettings.linkedin_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">LinkedIn Profile</a></li>
+          <li><a href="mailto:{{ settings.core.SiteBrandSettings.contact_email }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Email Direct</a></li>
         </ul>
       </div>
     </div>
-    <div class="mt-10 pt-6 border-t border-slate-200 dark:border-slate-800 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-slate-500 dark:text-slate-500">
+    <div class="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
       <p>&copy; <span class="current-year">2026</span> {{ settings.core.SiteBrandSettings.site_name }}. All rights reserved.</p>
-      <div class="flex items-center gap-4">
-        <a href="/sitemap.xml" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Sitemap</a>
-        <a href="/robots.txt" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Robots.txt</a>
+      <div class="flex items-center space-x-4">
+        <a href="/sitemap.xml" class="hover:text-slate-700 dark:hover:text-slate-400">Sitemap</a>
+        <a href="/robots.txt" class="hover:text-slate-700 dark:hover:text-slate-400">Robots.txt</a>
       </div>
     </div>
   </div>

@@ -76,6 +76,30 @@ class ProjectPage(Page):
         null=True, blank=True, help_text="Lower numbers appear first among featured projects on the homepage."
     )
 
+    role_label = models.CharField(
+        max_length=80,
+        default="",
+        blank=True,
+        help_text="Role shown on the home and index cards, e.g. 'Backend Architect'",
+    )
+    core_problem = models.CharField(
+        max_length=200,
+        default="",
+        blank=True,
+        help_text="Index card 'Core Problem:' line",
+    )
+    solution = models.CharField(
+        max_length=200,
+        default="",
+        blank=True,
+        help_text="Index card 'Solution:' line",
+    )
+    architecture_highlight = models.TextField(
+        blank=True,
+        default="",
+        help_text="Home featured card callout. The 'Architecture highlight:' label is fixed in the template.",
+    )
+
     body = StreamField(ArticleBodyBlock(), blank=True, use_json_field=True)
 
     search_fields = Page.search_fields + [
@@ -92,6 +116,10 @@ class ProjectPage(Page):
         FieldPanel("programming_language"),
         FieldPanel("featured"),
         FieldPanel("featured_order"),
+        FieldPanel("role_label"),
+        FieldPanel("core_problem"),
+        FieldPanel("solution"),
+        FieldPanel("architecture_highlight"),
         InlinePanel("stats", label="Stat grid rows"),
         FieldPanel("body"),
         InlinePanel("outcomes", label="Outcomes"),

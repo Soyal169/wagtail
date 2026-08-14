@@ -17,13 +17,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
       // Update button states
       filterBtns.forEach(b => {
-        b.classList.remove('bg-emerald-500', 'text-white', 'border-emerald-500');
-        b.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700', 'hover:border-slate-500');
+        b.classList.remove('bg-emerald-600', 'text-white', 'border-emerald-600');
+        b.classList.add('bg-white', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700');
         b.setAttribute('aria-pressed', 'false');
       });
 
-      btn.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700', 'hover:border-slate-500');
-      btn.classList.add('bg-emerald-500', 'text-white', 'border-emerald-500');
+      btn.classList.remove('bg-white', 'dark:bg-slate-800', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-slate-700');
+      btn.classList.add('bg-emerald-600', 'text-white', 'border-emerald-600');
       btn.setAttribute('aria-pressed', 'true');
 
       // Filter projects

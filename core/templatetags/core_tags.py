@@ -1,3 +1,5 @@
+import re
+
 from django import template
 from django.utils.html import escape
 from django.utils.safestring import mark_safe
@@ -36,16 +38,24 @@ def nav_is_active(request_path, link_page, title):
 @register.simple_tag
 def highlight_gradient(full_text, highlight):
     """Wraps the first occurrence of `highlight` within `full_text` in the
-    site's gradient-text span, escaping everything else."""
+    site's accent-text span, escaping everything else."""
     if not highlight or highlight not in full_text:
         return escape(full_text)
     before, _, after = full_text.partition(highlight)
-    gradient_span = (
-        '<span class="text-transparent bg-clip-text bg-gradient-to-r '
-        'from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400">'
+    accent_span = (
+        '<span class="text-emerald-700 dark:text-emerald-400">'
         f"{escape(highlight)}</span>"
     )
-    return mark_safe(f"{escape(before)}{gradient_span}{escape(after)}")
+    return mark_safe(f"{escape(before)}{accent_span}{escape(after)}")
+
+
+@register.filter
+def strip_scheme(url):
+    """Strips a leading http(s):// and any trailing slash for display,
+    e.g. 'https://github.com/soyal/' -> 'github.com/soyal'."""
+    if not url:
+        return ""
+    return re.sub(r"^https?://", "", str(url)).rstrip("/")
 
 
 @register.simple_tag

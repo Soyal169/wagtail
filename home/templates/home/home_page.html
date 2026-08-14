@@ -1,7 +1,7 @@
 {% extends "base.html" %}
-{% load static wagtailcore_tags core_tags %}
+{% load static wagtailcore_tags wagtailimages_tags core_tags %}
 
-{% block og_type %}website{% endblock %}
+{% block og_type %}profile{% endblock %}
 {% block twitter_meta %}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="{{ page.seo_title|default:page.title }}" />
@@ -10,97 +10,271 @@
 {% block json_ld %}{% include "partials/_json_ld_person.html" %}{% endblock %}
 
 {% block content %}
-<section class="py-16 md:py-24">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-    <div class="lg:col-span-7 space-y-6">
-      <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800/80 text-xs font-mono font-semibold text-emerald-800 dark:text-emerald-400">
-        <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-        {{ settings.core.SiteBrandSettings.availability_status }}
-      </div>
-      <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 leading-tight">
-        {% highlight_gradient page.hero_heading_main page.hero_heading_highlight %}
-      </h1>
-      <p class="text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl">{{ page.hero_subhead }}</p>
-      <div class="flex flex-wrap gap-4">
-        <a href="{{ nav_pages.projects.url }}" class="px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-all shadow-lg shadow-emerald-600/20 text-sm">View My Work</a>
-        <a href="{{ nav_pages.contact.url }}" class="px-6 py-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 font-bold transition-all text-sm">Get in Touch</a>
-        <a href="{{ nav_pages.resume.url }}" class="px-6 py-3 rounded-lg border border-slate-300 dark:border-slate-700 hover:border-emerald-500 text-slate-900 dark:text-slate-100 font-bold transition-all text-sm inline-flex items-center gap-2">
-          <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M4 20h16" /></svg>
-          Download Resume
-        </a>
-      </div>
-      <div class="flex flex-wrap gap-2 pt-2">
-        {% for skill in page.skill_pills|split:"," %}
-        <span class="px-3 py-1.5 rounded-full bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-xs font-mono text-slate-700 dark:text-slate-300">{{ skill }}</span>
-        {% endfor %}
-      </div>
-    </div>
+<!-- 1. Hero -->
+<section class="py-12 md:py-20 border-b border-slate-200 dark:border-slate-800/80 relative">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
 
-    <div class="lg:col-span-5">
-      <div class="tech-card rounded-xl overflow-hidden shadow-xl bg-slate-900 dark:bg-slate-950 border border-slate-800">
-        <div class="px-4 py-3 bg-slate-950 dark:bg-slate-900 border-b border-slate-800 flex items-center justify-between">
-          <div class="flex items-center space-x-2">
-            <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
-            <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
-            <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
+      <div class="lg:col-span-7 space-y-6">
+        <div class="flex flex-wrap items-center gap-3">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-mono font-medium">
+            <span class="status-dot-pulse"></span>
+            <span>{{ settings.core.SiteBrandSettings.availability_status }}</span>
           </div>
-          <span class="text-xs font-mono text-slate-400">system_status.py</span>
-          <span class="text-xs font-mono text-emerald-400">200 OK</span>
+          <span class="text-xs font-mono text-slate-500 flex items-center gap-1">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+            </svg>
+            {{ settings.core.SiteBrandSettings.location }} ({{ settings.core.SiteBrandSettings.timezone_label }})
+          </span>
         </div>
-        <div class="p-5 font-mono text-xs leading-relaxed space-y-4 text-slate-300">
-          <div>
-            <span class="text-slate-500">developer</span> = {<br>
-            &nbsp;&nbsp;<span class="text-emerald-400">"name"</span>: <span class="text-amber-300">"{{ page.terminal_json.identity.name }}"</span>,<br>
-            &nbsp;&nbsp;<span class="text-emerald-400">"role"</span>: <span class="text-amber-300">"{{ page.terminal_json.identity.role }}"</span>,<br>
-            &nbsp;&nbsp;<span class="text-emerald-400">"location"</span>: <span class="text-amber-300">"{{ page.terminal_json.identity.location }}"</span>,<br>
-            &nbsp;&nbsp;<span class="text-emerald-400">"status"</span>: <span class="text-teal-300">"{{ page.terminal_json.identity.status }}"</span><br>
-            }
+
+        <div class="space-y-2">
+          <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">
+            {% highlight_gradient page.hero_heading_main page.hero_heading_highlight %}
+          </h1>
+          <p class="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-slate-200">
+            {{ settings.core.SiteBrandSettings.tagline }}
+          </p>
+        </div>
+
+        <div class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">{{ page.hero_subhead|richtext }}</div>
+
+        <div class="flex flex-wrap items-center gap-3 pt-2">
+          <a href="{{ nav_pages.projects.url }}" class="px-5 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all shadow-sm hover:shadow inline-flex items-center gap-2">
+            <span>{{ page.hero_cta_primary_label }}</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+          <a href="{{ nav_pages.contact.url }}" class="px-5 py-3 rounded-lg bg-white dark:bg-[#0f172a] hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-semibold text-sm transition-all inline-flex items-center gap-2">
+            <span>{{ page.hero_cta_secondary_label }}</span>
+          </a>
+          <a href="{{ nav_pages.resume.url }}" class="px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 text-sm font-mono transition-colors inline-flex items-center gap-1.5">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+            </svg>
+            <span>{{ page.hero_cta_ghost_label }}</span>
+          </a>
+        </div>
+
+        <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex flex-wrap items-center gap-5 text-xs font-mono text-slate-500 dark:text-slate-400">
+          <span class="text-slate-400 dark:text-slate-600">Connect:</span>
+          <a href="{{ settings.core.SiteBrandSettings.github_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1">
+            <span>GitHub</span>
+            <span class="text-[10px]">↗</span>
+          </a>
+          <a href="{{ settings.core.SiteBrandSettings.linkedin_url }}" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1">
+            <span>LinkedIn</span>
+            <span class="text-[10px]">↗</span>
+          </a>
+          <a href="mailto:{{ settings.core.SiteBrandSettings.contact_email }}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1">
+            <span>{{ settings.core.SiteBrandSettings.contact_email }}</span>
+            <span class="text-[10px]">✉</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-5 space-y-4">
+        {% if settings.core.SiteBrandSettings.portrait %}
+        {% image settings.core.SiteBrandSettings.portrait fill-800x1000 as portrait_img %}
+        <div class="portrait-frame p-2 bg-white dark:bg-[#0f172a] max-w-sm mx-auto lg:max-w-none">
+          <div class="px-3 py-2 bg-slate-100 dark:bg-[#162032] rounded-t-lg border-b border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+            <span class="flex items-center gap-1.5">
+              <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+              {{ settings.core.SiteBrandSettings.portrait_caption }}
+            </span>
+            <span>{{ settings.core.SiteBrandSettings.coordinates }}</span>
           </div>
-          <div class="pt-4 border-t border-slate-800">
-            <span class="text-slate-500"># services</span><br>
-            {% for service in page.terminal_json.services %}
-            <span class="text-teal-300">✓</span> {{ service }}<br>
+          <div class="relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] overflow-hidden rounded-b-lg bg-slate-900">
+            <img
+              src="{{ portrait_img.url }}"
+              alt="{{ settings.core.SiteBrandSettings.portrait.default_alt_text }}"
+              class="w-full h-full object-cover object-top hover:scale-[1.02] transition-transform duration-500"
+              loading="eager"
+            >
+            <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-[#090d16]/95 via-[#090d16]/60 to-transparent text-white space-y-1">
+              <div class="flex items-center justify-between">
+                <span class="font-bold text-sm font-sans tracking-wide">{{ settings.core.SiteBrandSettings.person_name }}</span>
+                <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">{{ page.portrait_role_chip }}</span>
+              </div>
+              <p class="text-[11px] text-slate-300 font-mono">{{ page.portrait_caption_line }}</p>
+            </div>
+          </div>
+        </div>
+        {% endif %}
+
+        <div class="terminal-window max-w-sm mx-auto lg:max-w-none text-xs">
+          <div class="terminal-header">
+            <div class="flex items-center space-x-1.5">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+            </div>
+            <span class="text-[11px] text-slate-400">{{ page.terminal_filename }}</span>
+          </div>
+          <div class="p-3.5 space-y-1 font-mono text-[11px] text-slate-300">
+            {% for row in page.terminal_rows.all %}
+            <div>
+              <span class="text-slate-500">"{{ row.key }}":</span>
+              <span class="{% if row.accent == 'amber' %}text-amber-300{% elif row.accent == 'teal' %}text-teal-300{% elif row.accent == 'purple' %}text-purple-300{% else %}text-emerald-400{% endif %}">"{{ row.value }}"</span>{% if not forloop.last %},{% endif %}
+            </div>
             {% endfor %}
           </div>
-          <div class="pt-4 border-t border-slate-800 flex flex-wrap gap-x-4 gap-y-1 text-slate-400">
-            <span>Uptime: <span class="text-emerald-400">{{ page.terminal_json.metrics.uptime }}</span></span>
-            <span>Latency: <span class="text-emerald-400">{{ page.terminal_json.metrics.latency }}</span></span>
-            <span class="text-emerald-400">{{ page.terminal_json.metrics.note }}</span>
-          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- 2. Developer snapshot -->
+<section class="py-12 border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1120]/60">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex items-center justify-between mb-6">
+      <span class="text-xs font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-semibold">{{ page.snapshot_eyebrow }}</span>
+      <span class="text-xs font-mono text-slate-500">{{ page.snapshot_note }}</span>
+    </div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+      {% for fact in page.snapshot_facts.all %}
+      <div class="p-4 rounded-xl dev-card">
+        <span class="text-[11px] font-mono text-slate-500 block mb-1">{{ fact.label }}</span>
+        <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 block">{{ fact.value }}</span>
+        <span class="text-[10px] font-mono text-slate-400 mt-0.5 block">{{ fact.sub_value }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- 3. My story -->
+<section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      <div class="lg:col-span-5 space-y-4">
+        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{{ page.story_eyebrow }}</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight leading-tight">
+          {{ page.story_heading }}
+        </h2>
+        <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{{ page.story_lede }}</p>
+        <div class="pt-2">
+          <a href="{{ nav_pages.about.url }}" class="inline-flex items-center gap-2 text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 hover:underline">
+            <span>{{ page.story_link_text }}</span>
+          </a>
+        </div>
+      </div>
+
+      <div class="lg:col-span-7 space-y-6 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+        {{ page.story_body|richtext }}
+        <div class="p-5 rounded-xl bg-slate-100 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 space-y-3 font-mono text-xs">
+          <span class="text-emerald-700 dark:text-emerald-400 font-bold block">{{ page.story_callout_heading }}</span>
+          <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+            {% for bullet in page.story_bullets.all %}
+            <li class="flex items-start gap-2">
+              <span class="text-emerald-500 font-bold">✓</span>
+              <span>{{ bullet.text }}</span>
+            </li>
+            {% endfor %}
+          </ul>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="projects" class="py-16 md:py-24 bg-white dark:bg-slate-900/40 border-y border-slate-200 dark:border-slate-800">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="flex flex-wrap items-end justify-between gap-4 mb-12">
-      <div class="space-y-2 max-w-2xl">
-        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{{ page.featured_projects_eyebrow }}</span>
-        <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">{{ page.featured_projects_heading }}</h2>
-        <p class="text-slate-600 dark:text-slate-300">{{ page.featured_projects_intro }}</p>
-      </div>
-      <a href="{{ nav_pages.projects.url }}" class="text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline whitespace-nowrap">Explore All Projects →</a>
+<!-- 4. Core backend expertise -->
+<section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1120]/40">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12 space-y-3">
+      <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{{ page.expertise_eyebrow }}</span>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">{{ page.expertise_heading }}</h2>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">{{ page.expertise_intro }}</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {% for pillar in page.expertise_pillars.all %}
+      <div class="dev-card p-6 sm:p-8 rounded-xl space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">{{ pillar.ordinal_label }}</span>
+          <span class="dev-badge-neutral">{{ pillar.stack_badge }}</span>
+        </div>
+        <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">{{ pillar.heading }}</h3>
+        <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{{ pillar.description|richtext }}</div>
+        <div class="flex flex-wrap gap-1.5 pt-2">
+          {% for chip in pillar.chip_list %}<span class="dev-badge">{{ chip }}</span>{% endfor %}
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- 5. My toolbox -->
+<section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+      <div class="space-y-2">
+        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{{ page.toolbox_eyebrow }}</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">{{ page.toolbox_heading }}</h2>
+      </div>
+      <p class="text-xs sm:text-sm text-slate-500 font-mono">{{ page.toolbox_note }}</p>
+    </div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% regroup page.toolbox_rows.all by category as toolbox_categories %}
+      {% for category in toolbox_categories %}
+      <div class="p-6 rounded-xl dev-card space-y-3">
+        <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block border-b border-slate-200 dark:border-slate-800 pb-2">{{ category.grouper }}</span>
+        <ul class="space-y-2 text-xs font-mono text-slate-700 dark:text-slate-300">
+          {% for row in category.list %}
+          <li class="flex items-center justify-between">
+            <span>{{ row.name }}</span>
+            <span class="{% if row.highlight %}text-emerald-700 dark:text-emerald-400 font-semibold{% else %}text-slate-500{% endif %}">{{ row.qualifier }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- 6. Featured projects -->
+<section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1120]/40">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+      <div class="space-y-2">
+        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{{ page.featured_projects_eyebrow }}</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">{{ page.featured_projects_heading }}</h2>
+      </div>
+      <a href="{{ nav_pages.projects.url }}" class="text-xs font-mono font-semibold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1">
+        <span>{{ page.featured_projects_link_text }}</span>
+      </a>
+    </div>
+
+    <div class="space-y-8">
       {% for project in featured_projects %}
-      <article class="tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all reveal-on-scroll shadow-sm hover:shadow-md">
-        <div class="space-y-4">
-          <div class="flex items-center justify-between">
-            <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 text-xs font-mono font-semibold">{{ project.badge_label }}</span>
-            <span class="text-xs text-slate-500 font-mono">{{ project.tech_stack_summary }}</span>
+      <article class="dev-card p-6 sm:p-8 rounded-xl flex flex-col lg:flex-row gap-8 justify-between items-start">
+        <div class="space-y-4 lg:max-w-2xl">
+          <div class="flex items-center gap-3">
+            <span class="dev-badge">{{ project.role_label }}</span>
+            <span class="text-xs font-mono text-slate-500">{{ project.tech_stack_summary }}</span>
           </div>
-          <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100"><a href="{% pageurl project %}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">{{ project.title }}</a></h3>
-          <div class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">{{ project.summary|richtext }}</div>
-          <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
-            {% for chip in project.tech_chip_list %}<span>• {{ chip }}</span>{% endfor %}
+          <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
+            <a href="{% pageurl project %}" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">{{ project.title }}</a>
+          </h3>
+          <div class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{{ project.summary|richtext }}</div>
+          {% if project.architecture_highlight %}
+          <div class="p-3.5 rounded-lg bg-slate-100 dark:bg-[#0b1120] border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-400">
+            <strong class="text-slate-900 dark:text-slate-200">Architecture highlight:</strong> {{ project.architecture_highlight }}
+          </div>
+          {% endif %}
+          <div class="flex flex-wrap gap-1.5 pt-1">
+            {% for chip in project.tech_chip_list %}<span class="dev-badge-neutral">{{ chip }}</span>{% endfor %}
           </div>
         </div>
-        <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-          <a href="{% pageurl project %}" class="text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1">
-            View Detailed Case Study
-            <svg class="w-4 h-4" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true"><path fill-rule="evenodd" d="M12.293 4.293a1 1 0 011.414 0l5 5a1 1 0 010 1.414l-5 5a1 1 0 01-1.414-1.414L15.586 11H3a1 1 0 110-2h12.586l-3.293-3.293a1 1 0 010-1.414z" clip-rule="evenodd" /></svg>
+        <div class="w-full lg:w-auto shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
+          <a href="{% pageurl project %}" class="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs text-center transition-all font-mono">
+            Read Case Study →
           </a>
         </div>
       </article>
@@ -109,34 +283,90 @@
   </div>
 </section>
 
-<section id="engineering" class="py-16 md:py-24">
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="max-w-2xl mb-12 space-y-2">
+<!-- 7. Engineering principles -->
+<section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-3xl mb-12 space-y-2">
       <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{{ page.philosophy_eyebrow }}</span>
-      <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">{{ page.philosophy_heading }}</h2>
-      <p class="text-slate-600 dark:text-slate-300">{{ page.philosophy_intro }}</p>
+      <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">{{ page.philosophy_heading }}</h2>
+      <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">{{ page.philosophy_intro }}</p>
     </div>
-    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
       {% for step in page.philosophy_steps.all %}
-      <div class="tech-card p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-        <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-400 flex items-center justify-center font-bold font-mono text-sm mb-4">{{ step.number }}</div>
-        <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">{{ step.title }}</h3>
-        <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 leading-relaxed">{{ step.description }}</p>
+      <div class="p-6 rounded-xl dev-card space-y-3">
+        <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400">{{ step.number }}</span>
+        <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">{{ step.title }}</h3>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">{{ step.description }}</p>
       </div>
       {% endfor %}
     </div>
   </div>
 </section>
 
-<section id="contact-cta" class="py-16 md:py-24 bg-white dark:bg-slate-900/40 border-t border-slate-200 dark:border-slate-800 text-center">
-  <div class="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8 space-y-6">
-    <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Let's Work Together</span>
-    <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100">{{ page.contact_cta_heading }}</h2>
-    <div class="text-slate-600 dark:text-slate-300">{{ page.contact_cta_text|richtext }}</div>
-    <div class="flex flex-wrap justify-center gap-4">
-      <a href="{{ nav_pages.contact.url }}" class="px-6 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-all shadow-lg shadow-emerald-600/20 text-sm">Send a Message</a>
-      <button type="button" data-email="{{ settings.core.SiteBrandSettings.contact_email }}" class="copy-email-btn px-6 py-3 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-900 dark:text-slate-100 font-bold transition-all text-sm">Copy Email Address</button>
+<!-- 8. Currently building & exploring -->
+<section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1120]/40">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+      <div class="space-y-2">
+        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{{ page.status_eyebrow }}</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">{{ page.status_heading }}</h2>
+      </div>
+      <span class="text-xs font-mono text-slate-500">{{ page.status_updated_label }}</span>
     </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {% for card in page.status_cards.all %}
+      <div class="dev-card p-5 rounded-xl space-y-2">
+        <span class="text-[11px] font-mono {% if card.accent == 'amber' %}text-amber-700 dark:text-amber-400{% elif card.accent == 'teal' %}text-teal-700 dark:text-teal-400{% elif card.accent == 'purple' %}text-purple-700 dark:text-purple-400{% else %}text-emerald-700 dark:text-emerald-400{% endif %} font-bold uppercase tracking-wider block">{{ card.emoji }} {{ card.category_label }}</span>
+        <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 font-semibold leading-snug">{{ card.title }}</p>
+        <p class="text-xs text-slate-500 leading-relaxed">{{ card.description }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<!-- 9. Beyond code -->
+<section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+      <div class="lg:col-span-5 space-y-3">
+        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">{{ page.interests_eyebrow }}</span>
+        <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">{{ page.interests_heading }}</h2>
+        <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">{{ page.interests_lede }}</p>
+      </div>
+      <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {% for interest in page.interests.all %}
+        <div class="p-5 rounded-xl dev-card space-y-2">
+          <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold block">{{ interest.emoji }} {{ interest.label }}</span>
+          <h4 class="text-sm font-bold text-slate-900 dark:text-slate-100">{{ interest.heading }}</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">{{ interest.description }}</p>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 10. Let's connect -->
+<section class="py-16 md:py-24 bg-slate-100 dark:bg-[#0b1120]/70">
+  <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+    <div class="space-y-3">
+      <span class="text-xs font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-semibold">{{ page.cta_eyebrow }}</span>
+      <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">{{ page.contact_cta_heading }}</h2>
+      <div class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">{{ page.contact_cta_text|richtext }}</div>
+    </div>
+    <div class="flex flex-wrap items-center justify-center gap-4">
+      <a href="{{ nav_pages.contact.url }}" class="px-6 py-3.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-all shadow-sm">
+        {{ page.cta_button_label }}
+      </a>
+      <button type="button" class="copy-email-btn px-5 py-3.5 rounded-lg bg-white dark:bg-[#0f172a] hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-mono text-xs transition-all inline-flex items-center gap-2" data-email="{{ settings.core.SiteBrandSettings.contact_email }}">
+        <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+        </svg>
+        <span>Copy: {{ settings.core.SiteBrandSettings.contact_email }}</span>
+      </button>
+    </div>
+    <p class="text-xs font-mono text-slate-500">{{ page.cta_footnote }}</p>
   </div>
 </section>
 {% endblock %}

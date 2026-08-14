@@ -1,13 +1,20 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-    <head>
-        <meta charset="utf-8" />
-        <title>Internal server error</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </head>
-    <body>
-        <h1>Internal server error</h1>
-
-        <h2>Sorry, there seems to be an error. Please try again soon.</h2>
-    </body>
+{% load static %}<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  {% include "partials/_theme_script.html" %}
+  <title>Internal server error</title>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body class="bg-slate-50 text-slate-900 dark:bg-[#090d16] dark:text-slate-100 min-h-screen flex flex-col antialiased transition-colors duration-200 bg-dev-grid">
+  <main class="flex-grow flex items-center justify-center py-14">
+    <div class="max-w-md mx-auto px-4 text-center space-y-6">
+      <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">500</span>
+      <h1 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">Internal server error</h1>
+      <p class="text-base text-slate-600 dark:text-slate-300 leading-relaxed">Sorry, there seems to be an error. Please try again soon.</p>
+      <div class="dev-card rounded-xl p-6">
+        <a href="/" class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-colors font-mono">Back to Home</a>
+      </div>
+    </div>
+  </main>
+</body>
 </html>

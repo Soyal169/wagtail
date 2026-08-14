@@ -22,8 +22,9 @@ class ResumePage(Page):
     )
     professional_summary = RichTextField(features=["bold", "italic"])
     education_line = models.CharField(
-        max_length=200, help_text="e.g. B.Sc. Computer Science — Tribhuvan University, Kathmandu"
+        max_length=200, help_text="Degree only, e.g. Bachelor of Science in Computer Science & Information Technology (BSc.CSIT)"
     )
+    education_location = models.CharField(max_length=120, default="Kathmandu, Nepal")
 
     content_panels = Page.content_panels + [
         FieldPanel("full_name"),
@@ -34,6 +35,7 @@ class ResumePage(Page):
         InlinePanel("experience_entries", label="Work experience"),
         InlinePanel("project_highlights", label="Key featured projects"),
         FieldPanel("education_line"),
+        FieldPanel("education_location"),
     ]
 
 

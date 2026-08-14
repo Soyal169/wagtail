@@ -1,11 +1,22 @@
 {% extends "base.html" %}
 
-{% block title %}Page not found{% endblock %}
+{% block title %}Page not found | {{ settings.core.SiteBrandSettings.site_name }}{% endblock %}
 
 {% block body_class %}template-404{% endblock %}
 
 {% block content %}
-<h1>Page not found</h1>
-
-<h2>Sorry, this page could not be found.</h2>
+<section class="py-14 md:py-20">
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-xl mx-auto text-center space-y-6">
+      <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">404</span>
+      <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight leading-tight">Page not found</h1>
+      <p class="text-base text-slate-600 dark:text-slate-300 leading-relaxed">Sorry, this page could not be found.</p>
+      <div class="dev-card rounded-xl p-6 flex flex-wrap items-center justify-center gap-3 font-mono text-sm">
+        <a href="{{ nav_pages.home.url|default:'/' }}" class="px-4 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-colors">Home</a>
+        {% if nav_pages.projects %}<a href="{{ nav_pages.projects.url }}" class="px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Projects</a>{% endif %}
+        {% if nav_pages.blog %}<a href="{{ nav_pages.blog.url }}" class="px-4 py-2 rounded-lg text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Notes</a>{% endif %}
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}
