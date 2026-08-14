@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light dark">
 
-  <!-- Inline script to set theme from system preference or saved choice before rendering -->
+  <!-- Immediate Theme Initializer -->
   <script>
     (function() {
       var saved = localStorage.getItem('theme');
@@ -19,41 +19,45 @@
       }
     })();
   </script>
-  
+
   <!-- SEO Primary Meta Tags -->
-  <title>Backend Developer & Software Engineer in Nepal | Soyal</title>
-  <meta name="description" content="Senior Backend Developer in Kathmandu, Nepal specializing in Python, Django, FastAPI, Laravel, REST API architecture, and Wagtail CMS solutions.">
-  <meta name="keywords" content="Backend Developer Nepal, Python Developer Nepal, Django Developer Nepal, Laravel Developer Nepal, Software Developer Kathmandu, REST API Architecture, Wagtail CMS">
+  <title>Soyal | Senior Backend Developer & Wagtail Specialist (Kathmandu, Nepal)</title>
+  <meta name="description" content="Personal portfolio of Soyal — Senior Backend Developer & Wagtail Specialist based in Kathmandu, Nepal. Crafting resilient REST APIs, database architectures, and CMS platforms with Python, Django, Wagtail, FastAPI, and Laravel.">
+  <meta name="keywords" content="Soyal, Backend Developer Nepal, Wagtail CMS Specialist Kathmandu, Python Developer Nepal, Django Backend Engineer, FastAPI Redis, Laravel Developer">
   <meta name="author" content="Soyal">
   <link rel="canonical" href="https://soyal-portfolio.dev/">
   <link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
   <link rel="manifest" href="site.webmanifest">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#090d16">
 
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="profile">
   <meta property="og:url" content="https://soyal-portfolio.dev/">
-  <meta property="og:title" content="Backend Developer & Software Engineer in Nepal | Soyal">
-  <meta property="og:description" content="Senior Backend Developer specializing in Python, Django, FastAPI, Laravel, REST API architecture, and database design.">
-  <meta property="og:image" content="https://soyal-portfolio.dev/assets/images/og-home.webp">
-  <meta property="og:site_name" content="Soyal Engineering Brand">
+  <meta property="og:title" content="Soyal | Senior Backend Developer & Wagtail Specialist">
+  <meta property="og:description" content="Personal developer portfolio of Soyal — Senior Backend Developer in Kathmandu, Nepal. Specialized in Python, Django, Wagtail CMS, FastAPI, and PostgreSQL.">
+  <meta property="og:image" content="https://soyal-portfolio.dev/assets/images/profile.jpg">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Backend Developer & Software Engineer in Nepal | Soyal">
-  <meta name="twitter:description" content="Senior Backend Developer specializing in Python, Django, FastAPI, Laravel, REST API architecture, and database design.">
-  <meta name="twitter:image" content="https://soyal-portfolio.dev/assets/images/og-home.webp">
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://soyal-portfolio.dev/">
+  <meta property="twitter:title" content="Soyal | Senior Backend Developer & Wagtail Specialist">
+  <meta property="twitter:description" content="Personal developer portfolio of Soyal — Senior Backend Developer in Kathmandu, Nepal. Specialized in Python, Django, Wagtail CMS, FastAPI, and PostgreSQL.">
+  <meta property="twitter:image" content="https://soyal-portfolio.dev/assets/images/profile.jpg">
 
   <!-- Fonts & Tailwind Config -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+          },
           colors: {
             emerald: {
               50: '#f0fdf4',
@@ -75,95 +79,71 @@
   </script>
   <link rel="stylesheet" href="assets/css/styles.css">
 
-  <!-- JSON-LD Structured Data -->
+  <!-- JSON-LD Structured Data for Wagtail Readiness -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "Person",
-        "@id": "https://soyal-portfolio.dev/#person",
-        "name": "Soyal",
-        "jobTitle": "Senior Backend Developer",
-        "worksFor": {
-          "@type": "Organization",
-          "name": "Independent Engineering Consultant"
-        },
-        "url": "https://soyal-portfolio.dev",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Kathmandu",
-          "addressCountry": "Nepal"
-        },
-        "knowsAbout": [
-          "Python", "Django", "FastAPI", "PHP", "Laravel", "Wagtail CMS", "REST APIs", "MySQL", "PostgreSQL", "Database Design", "API Security"
-        ],
-        "sameAs": [
-          "https://github.com/",
-          "https://linkedin.com/in/"
-        ]
-      },
-      {
-        "@type": "WebSite",
-        "@id": "https://soyal-portfolio.dev/#website",
-        "url": "https://soyal-portfolio.dev",
-        "name": "Soyal | Backend Developer Portfolio",
-        "publisher": {
-          "@id": "https://soyal-portfolio.dev/#person"
-        }
-      }
+    "@type": "Person",
+    "name": "Soyal",
+    "jobTitle": "Senior Backend Developer & Wagtail Specialist",
+    "url": "https://soyal-portfolio.dev",
+    "image": "https://soyal-portfolio.dev/assets/images/profile.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Kathmandu",
+      "addressCountry": "Nepal"
+    },
+    "knowsAbout": ["Python", "Django", "Wagtail CMS", "FastAPI", "PHP", "Laravel", "PostgreSQL", "MySQL", "Redis", "Docker", "REST API Architecture"],
+    "sameAs": [
+      "https://github.com/",
+      "https://linkedin.com/in/"
     ]
   }
   </script>
 </head>
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased transition-colors duration-200">
+<body class="bg-slate-50 text-slate-900 dark:bg-[#090d16] dark:text-slate-100 min-h-screen flex flex-col antialiased transition-colors duration-200 bg-dev-grid">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
   <!-- Header -->
-  <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-200 shadow-sm dark:shadow-none">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <header class="sticky top-0 z-50 bg-white/90 dark:bg-[#090d16]/85 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
         
-        <!-- Brand Logo / Name -->
-        <a href="index.html" class="flex items-center gap-2 group" aria-label="Soyal Portfolio Homepage">
-          <div class="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:border-emerald-500 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
+        <!-- Identity Logo -->
+        <a href="index.html" class="flex items-center gap-2.5 group" aria-label="Soyal Portfolio Homepage">
+          <div class="w-8 h-8 rounded-md bg-emerald-50 dark:bg-slate-800/80 border border-emerald-200 dark:border-slate-700 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:border-emerald-500 transition-colors font-mono font-bold text-sm">
+            &gt;_
           </div>
-          <span class="font-bold text-lg text-slate-900 dark:text-slate-100 tracking-tight">Soyal<span class="text-emerald-600 dark:text-emerald-500">.dev</span></span>
+          <span class="font-bold text-base text-slate-900 dark:text-slate-100 tracking-tight font-mono">soyal<span class="text-emerald-600 dark:text-emerald-400">.dev</span></span>
         </a>
 
         <!-- Desktop Navigation -->
-        <nav class="hidden md:flex items-center space-x-8" aria-label="Primary navigation">
-          <a href="index.html" class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Home</a>
+        <nav class="hidden md:flex items-center space-x-7" aria-label="Primary navigation">
+          <a href="index.html" class="text-sm font-medium text-emerald-600 dark:text-emerald-400 font-semibold transition-colors" aria-current="page">Home</a>
           <a href="about.html" class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About</a>
           <a href="experience.html" class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Experience</a>
           <a href="projects.html" class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Projects</a>
-          <a href="blog.html" class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Blog</a>
+          <a href="blog.html" class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Notes</a>
           <a href="contact.html" class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Contact</a>
         </nav>
 
-        <!-- Right Action Group -->
-        <div class="hidden md:flex items-center space-x-4">
-          <!-- Theme Toggle Button -->
-          <button type="button" class="theme-toggle-btn p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-slate-200 bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors border border-slate-200 dark:border-slate-700" aria-label="Toggle light and dark mode">
-            <!-- Sun icon (shown in dark mode) -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden dark:block text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <!-- Right Header Actions -->
+        <div class="hidden md:flex items-center space-x-3">
+          <button type="button" class="theme-toggle-btn p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-slate-200 bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 transition-colors" aria-label="Toggle light and dark mode">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 hidden dark:block text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
-            <!-- Moon icon (shown in light mode) -->
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 block dark:hidden text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 block dark:hidden text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
             </svg>
           </button>
           
-          <a href="resume.html" class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-500/30 hover:bg-emerald-50 dark:hover:bg-emerald-500/10 transition-all">
-            Resume
+          <a href="resume.html" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-medium rounded-lg text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/80 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-all">
+            <span>CV / Resume</span>
           </a>
         </div>
 
-        <!-- Mobile Menu Trigger -->
+        <!-- Mobile Menu Toggle -->
         <div class="flex md:hidden items-center space-x-2">
           <button type="button" class="theme-toggle-btn p-2 rounded-lg text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800" aria-label="Toggle theme">
             <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden dark:block text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -183,320 +163,808 @@
     </div>
 
     <!-- Mobile Drawer Menu -->
-    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-6 space-y-3">
-      <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Home</a>
-      <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
-      <a href="experience.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Experience</a>
-      <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Projects</a>
-      <a href="blog.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Blog</a>
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] px-4 pt-2 pb-6 space-y-2">
+      <a href="index.html" class="block px-3 py-2 rounded-md text-base font-medium text-emerald-600 dark:text-emerald-400 bg-emerald-50/50 dark:bg-emerald-950/20">Home</a>
+      <a href="about.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">About Me</a>
+      <a href="experience.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Career Timeline</a>
+      <a href="projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Projects & Case Studies</a>
+      <a href="blog.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Engineering Notes</a>
       <a href="contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
-      <a href="resume.html" class="block px-3 py-2 rounded-md text-base font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 text-center mt-4">View Resume</a>
+      <a href="resume.html" class="block px-3 py-2 rounded-md text-base font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-center mt-3 font-mono">View Resume (PDF)</a>
     </div>
   </header>
 
-  <!-- Main Content Container -->
   <main id="main-content" class="flex-grow">
-    
-    <section id="hero" class="relative py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/60 overflow-hidden bg-white dark:bg-slate-900">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+
+    <!-- =========================================================================
+         1. HERO SECTION (ME: Direct Introduction + Authentic Editorial Portrait)
+         ========================================================================= -->
+    <section class="py-12 md:py-20 border-b border-slate-200 dark:border-slate-800/80 relative">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
           
+          <!-- Hero Left Column: Narrative Introduction -->
           <div class="lg:col-span-7 space-y-6">
-            <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-100/80 dark:bg-emerald-950/60 border border-emerald-300 dark:border-emerald-800/80 text-emerald-800 dark:text-emerald-400 text-xs font-semibold tracking-wide">
-              <span class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></span>
-              Available for Senior Backend & Software Engineering Roles
+            
+            <!-- Availability & Location Tag -->
+            <div class="flex flex-wrap items-center gap-3">
+              <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-700 dark:text-emerald-400 text-xs font-mono font-medium">
+                <span class="status-dot-pulse"></span>
+                <span>Open to Senior Backend Roles & Consultancy</span>
+              </div>
+              <span class="text-xs font-mono text-slate-500 flex items-center gap-1">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3.5 h-3.5 text-slate-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                </svg>
+                Kathmandu, Nepal (UTC+5:45)
+              </span>
             </div>
 
-            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-slate-900 dark:text-slate-100 leading-tight">
-              Backend Developer building <span class="text-transparent bg-clip-text bg-gradient-to-r from-emerald-600 to-teal-600 dark:from-emerald-400 dark:to-teal-400">reliable APIs</span> & production systems.
-            </h1>
+            <!-- Main Headline -->
+            <div class="space-y-2">
+              <h1 class="text-3xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight leading-[1.1]">
+                Hi, I'm <span class="text-emerald-700 dark:text-emerald-400">Soyal</span>.
+              </h1>
+              <p class="text-xl sm:text-2xl font-semibold text-slate-800 dark:text-slate-200">
+                Senior Backend Developer & Wagtail Specialist
+              </p>
+            </div>
 
-            <p class="text-lg text-slate-700 dark:text-slate-300 max-w-2xl font-normal leading-relaxed">
-              I specialize in Python, Django, FastAPI, PHP, Laravel, and Wagtail CMS. Based in Kathmandu, Nepal, I architect robust database models, high-performance REST APIs, and scalable business logic for real-world application platforms.
+            <!-- Direct Narrative Summary -->
+            <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl">
+              I design and build production-grade web applications, high-concurrency APIs, resilient database architectures, and bespoke CMS platforms using <strong class="text-slate-900 dark:text-slate-100">Python (Django, Wagtail, FastAPI)</strong> and <strong class="text-slate-900 dark:text-slate-100">PHP (Laravel)</strong>.
             </p>
 
-            <div class="flex flex-wrap gap-4 pt-2">
-              <a href="projects.html" class="px-6 py-3.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold transition-all shadow-lg shadow-emerald-600/20 text-center">
-                View My Work
+            <!-- Primary CTAs -->
+            <div class="flex flex-wrap items-center gap-3 pt-2">
+              <a href="projects.html" class="px-5 py-3 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-sm transition-all shadow-sm hover:shadow inline-flex items-center gap-2">
+                <span>View Selected Work</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
               </a>
-              <a href="contact.html" class="px-6 py-3.5 rounded-lg bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-medium hover:border-emerald-500 dark:hover:border-slate-500 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all text-center shadow-sm">
-                Get in Touch
+              <a href="contact.html" class="px-5 py-3 rounded-lg bg-white dark:bg-[#0f172a] hover:bg-slate-100 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-semibold text-sm transition-all inline-flex items-center gap-2">
+                <span>Let's Talk</span>
               </a>
-              <a href="resume.html" class="px-6 py-3.5 rounded-lg text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 text-sm font-medium flex items-center gap-2 transition-colors">
+              <a href="resume.html" class="px-4 py-3 rounded-lg text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-emerald-400 text-sm font-mono transition-colors inline-flex items-center gap-1.5">
                 <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                 </svg>
-                Download Resume
+                <span>CV / Resume</span>
               </a>
             </div>
 
-            <div class="pt-6 border-t border-slate-200 dark:border-slate-800/80">
-              <span class="text-xs uppercase tracking-wider font-semibold text-slate-500 dark:text-slate-400 block mb-3">Core Stack Expertise</span>
-              <div class="flex flex-wrap gap-2 text-xs font-mono">
-                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-medium">Python</span>
-                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-medium">Django</span>
-                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-medium">FastAPI</span>
-                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-medium">Laravel</span>
-                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-medium">Wagtail CMS</span>
-                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-medium">MySQL / PostgreSQL</span>
-                <span class="px-2.5 py-1 rounded bg-slate-100 dark:bg-slate-800 text-slate-800 dark:text-slate-300 border border-slate-200 dark:border-slate-700 font-medium">REST APIs</span>
-              </div>
+            <!-- Social Connect Links in Hero -->
+            <div class="pt-4 border-t border-slate-200 dark:border-slate-800/80 flex flex-wrap items-center gap-5 text-xs font-mono text-slate-500 dark:text-slate-400">
+              <span class="text-slate-400 dark:text-slate-600">Connect:</span>
+              <a href="https://github.com/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1">
+                <span>GitHub</span>
+                <span class="text-[10px]">↗</span>
+              </a>
+              <a href="https://linkedin.com/in/" target="_blank" rel="noopener noreferrer" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1">
+                <span>LinkedIn</span>
+                <span class="text-[10px]">↗</span>
+              </a>
+              <a href="mailto:soyal@example.com" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors inline-flex items-center gap-1">
+                <span>soyal@example.com</span>
+                <span class="text-[10px]">✉</span>
+              </a>
             </div>
+
           </div>
 
-          <div class="lg:col-span-5">
-            <div class="tech-card rounded-xl overflow-hidden shadow-xl bg-slate-900 dark:bg-slate-950 border border-slate-800">
-              <div class="px-4 py-3 bg-slate-950 dark:bg-slate-900 border-b border-slate-800 flex items-center justify-between">
-                <div class="flex items-center space-x-2">
-                  <span class="w-3 h-3 rounded-full bg-red-500/80"></span>
-                  <span class="w-3 h-3 rounded-full bg-yellow-500/80"></span>
-                  <span class="w-3 h-3 rounded-full bg-green-500/80"></span>
-                </div>
-                <span class="text-xs font-mono text-slate-400">system_status.py</span>
-                <span class="text-xs font-mono text-emerald-400">200 OK</span>
-              </div>
+          <!-- Hero Right Column: Authentic Profile Portrait & Technical Framing -->
+          <div class="lg:col-span-5 space-y-4">
+            
+            <div class="portrait-frame p-2 bg-white dark:bg-[#0f172a] max-w-sm mx-auto lg:max-w-none">
               
-              <div class="p-5 font-mono text-xs leading-relaxed space-y-4 text-slate-300">
-                <div>
-                  <span class="text-slate-500"># System Identity & Positioning</span><br>
-                  <span class="text-emerald-400">developer</span> = {<br>
-                  &nbsp;&nbsp;<span class="text-slate-400">"name"</span>: <span class="text-teal-300">"Soyal"</span>,<br>
-                  &nbsp;&nbsp;<span class="text-slate-400">"role"</span>: <span class="text-teal-300">"Senior Backend Engineer"</span>,<br>
-                  &nbsp;&nbsp;<span class="text-slate-400">"location"</span>: <span class="text-teal-300">"Kathmandu, Nepal"</span>,<br>
-                  &nbsp;&nbsp;<span class="text-slate-400">"status"</span>: <span class="text-teal-300">"Open to Remote / Global Roles"</span><br>
-                  }
-                </div>
+              <!-- Subtle Header Bar on Portrait -->
+              <div class="px-3 py-2 bg-slate-100 dark:bg-[#162032] rounded-t-lg border-b border-slate-200 dark:border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-500 dark:text-slate-400">
+                <span class="flex items-center gap-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500 inline-block"></span>
+                  soyal.portrait
+                </span>
+                <span>27.7172° N, 85.3240° E</span>
+              </div>
 
-                <div class="border-t border-slate-800/80 pt-3">
-                  <span class="text-slate-500"># Engineering Capabilities</span><br>
-                  <span class="text-emerald-400">services</span> = [<br>
-                  &nbsp;&nbsp;<span class="text-amber-300">"REST API Architecture"</span>,<br>
-                  &nbsp;&nbsp;<span class="text-amber-300">"Wagtail / Django Enterprise CMS"</span>,<br>
-                  &nbsp;&nbsp;<span class="text-amber-300">"Database Design & Query Optimization"</span>,<br>
-                  &nbsp;&nbsp;<span class="text-amber-300">"Authentication & Payment Security"</span><br>
-                  ]
-                </div>
-
-                <div class="border-t border-slate-800/80 pt-3 flex items-center justify-between text-[11px] text-slate-400">
-                  <span class="flex items-center gap-1.5">
-                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400"></span>
-                    API Uptime: 99.98%
-                  </span>
-                  <span>Latency: 24ms</span>
-                  <span class="text-emerald-400">Clean Architecture</span>
+              <!-- Portrait Photo Element -->
+              <div class="relative aspect-[4/5] sm:aspect-square lg:aspect-[4/5] overflow-hidden rounded-b-lg bg-slate-900">
+                <img 
+                  src="assets/images/profile.jpg" 
+                  alt="Soyal — Senior Backend Developer & Wagtail Specialist in Kathmandu, Nepal" 
+                  class="w-full h-full object-cover object-top hover:scale-[1.02] transition-transform duration-500"
+                  loading="eager"
+                  onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&auto=format&fit=crop&q=80';"
+                >
+                
+                <!-- Bottom Gradient Annotation Overlay -->
+                <div class="absolute inset-x-0 bottom-0 p-4 bg-gradient-to-t from-[#090d16]/95 via-[#090d16]/60 to-transparent text-white space-y-1">
+                  <div class="flex items-center justify-between">
+                    <span class="font-bold text-sm font-sans tracking-wide">Soyal</span>
+                    <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/30">Backend Architect</span>
+                  </div>
+                  <p class="text-[11px] text-slate-300 font-mono">Specializing in Wagtail CMS, Django, FastAPI & Laravel</p>
                 </div>
               </div>
             </div>
+
+            <!-- Terminal Info Card beneath photo -->
+            <div class="terminal-window max-w-sm mx-auto lg:max-w-none text-xs">
+              <div class="terminal-header">
+                <div class="flex items-center space-x-1.5">
+                  <span class="w-2.5 h-2.5 rounded-full bg-rose-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-amber-500/80"></span>
+                  <span class="w-2.5 h-2.5 rounded-full bg-emerald-500/80"></span>
+                </div>
+                <span class="text-[11px] text-slate-400">soyal_env.json</span>
+              </div>
+              <div class="p-3.5 space-y-1 font-mono text-[11px] text-slate-300">
+                <div><span class="text-slate-500">"role":</span> <span class="text-emerald-400">"Senior Backend Engineer"</span>,</div>
+                <div><span class="text-slate-500">"core_cms":</span> <span class="text-amber-300">"Wagtail (Django)"</span>,</div>
+                <div><span class="text-slate-500">"api_engines":</span> <span class="text-teal-300">["FastAPI", "Django REST", "Laravel"]</span>,</div>
+                <div><span class="text-slate-500">"db_discipline":</span> <span class="text-purple-300">"ACID • PostgreSQL • Redis Locks"</span></div>
+              </div>
+            </div>
+
           </div>
 
         </div>
+
       </div>
     </section>
 
-    <section id="projects" class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/60 bg-slate-50/50 dark:bg-slate-900/40">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- =========================================================================
+         2. DEVELOPER SNAPSHOT (At A Glance / Quick Profile Inventory)
+         ========================================================================= -->
+    <section class="py-12 border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1120]/60">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="flex flex-col md:flex-row md:items-end justify-between mb-12">
-          <div>
-            <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Case Studies</span>
-            <h2 class="text-3xl font-bold text-slate-900 dark:text-slate-100 mt-2">Featured Engineering Projects</h2>
-            <p class="text-slate-600 dark:text-slate-400 mt-2 max-w-xl">Production business software, POS systems, booking engines, and API infrastructure built with Django, Laravel, and Wagtail.</p>
-          </div>
-          <a href="projects.html" class="mt-4 md:mt-0 text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:text-emerald-600 flex items-center gap-1">
-            Explore All Projects
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
-          </a>
+        <div class="flex items-center justify-between mb-6">
+          <span class="text-xs font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-semibold">Developer Snapshot</span>
+          <span class="text-xs font-mono text-slate-500">Fast Facts & Environment</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
           
-          <article class="tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all reveal-on-scroll shadow-sm hover:shadow-md">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 text-xs font-mono font-semibold">Full-Stack / POS</span>
-                <span class="text-xs text-slate-500 font-mono">Laravel • Vue • MySQL</span>
-              </div>
-              <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
-                <a href="projects/nexuspos.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">NexusPOS — Multi-Store Point of Sale</a>
-              </h3>
-              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                Enterprise inventory management, multi-outlet billing, automated CRM, restaurant kitchen ordering, and real-time sales reporting backend built with Laravel REST APIs and MySQL.
-              </p>
-              <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
-                <span>• Multi-tenant DB</span>
-                <span>• Inventory Sync</span>
-                <span>• Kitchen Display API</span>
-              </div>
-            </div>
-            <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              <a href="projects/nexuspos.html" class="text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1">
-                View Detailed Case Study
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
-          </article>
+          <div class="p-4 rounded-xl dev-card">
+            <span class="text-[11px] font-mono text-slate-500 block mb-1">Based in</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 block">Kathmandu, Nepal</span>
+            <span class="text-[10px] font-mono text-slate-400 mt-0.5 block">UTC+5:45 Timezone</span>
+          </div>
 
-          <article class="tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all reveal-on-scroll shadow-sm hover:shadow-md">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 text-xs font-mono font-semibold">Backend API / Engine</span>
-                <span class="text-xs text-slate-500 font-mono">FastAPI • Redis • PostgreSQL</span>
-              </div>
-              <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
-                <a href="projects/cinema-platform.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Cinema Ticket Booking Engine</a>
-              </h3>
-              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                High-concurrency ticket reservation engine handling seat row locks, movie scheduling, automated ticket generation, and payment gateway webhooks using FastAPI async tasks.
-              </p>
-              <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
-                <span>• Redis Lock Engine</span>
-                <span>• Concurrency Handling</span>
-                <span>• JWT Security</span>
-              </div>
-            </div>
-            <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              <a href="projects/cinema-platform.html" class="text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1">
-                View Detailed Case Study
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
-          </article>
+          <div class="p-4 rounded-xl dev-card">
+            <span class="text-[11px] font-mono text-slate-500 block mb-1">Core Discipline</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 block">Backend & CMS</span>
+            <span class="text-[10px] font-mono text-slate-400 mt-0.5 block">High-concurrency APIs</span>
+          </div>
 
-          <article class="tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all reveal-on-scroll shadow-sm hover:shadow-md">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 text-xs font-mono font-semibold">CMS & E-commerce</span>
-                <span class="text-xs text-slate-500 font-mono">Django • Wagtail • WooCommerce</span>
-              </div>
-              <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
-                <a href="projects/ecommerce.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Wagtail E-Commerce & Product Hub</a>
-              </h3>
-              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                Headless product catalog and content management system powering automated product taxonomy, order fulfillment hooks, and multi-currency pricing endpoints.
-              </p>
-              <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
-                <span>• Wagtail StreamField</span>
-                <span>• Custom Page Models</span>
-                <span>• WooCommerce REST Sync</span>
-              </div>
-            </div>
-            <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              <a href="projects/ecommerce.html" class="text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1">
-                View Detailed Case Study
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
-          </article>
+          <div class="p-4 rounded-xl dev-card">
+            <span class="text-[11px] font-mono text-slate-500 block mb-1">Specialization</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 block">Wagtail CMS</span>
+            <span class="text-[10px] font-mono text-slate-400 mt-0.5 block">StreamFields & Models</span>
+          </div>
 
-          <article class="tech-card rounded-xl p-6 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 flex flex-col justify-between hover:border-emerald-500 transition-all reveal-on-scroll shadow-sm hover:shadow-md">
-            <div class="space-y-4">
-              <div class="flex items-center justify-between">
-                <span class="px-2.5 py-1 rounded-md bg-emerald-100 dark:bg-emerald-950/80 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800/60 text-xs font-mono font-semibold">Real-Time System</span>
-                <span class="text-xs text-slate-500 font-mono">Python • WebSockets • Redis</span>
-              </div>
-              <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
-                <a href="projects/bidding-platform.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Online Auction & Bidding Engine</a>
-              </h3>
-              <p class="text-slate-600 dark:text-slate-300 text-sm leading-relaxed">
-                Sub-second bidding system with state machine validation, countdown timer state, WebSocket broadcast events, and automated winner settlement routines.
-              </p>
-              <div class="flex flex-wrap gap-2 text-xs font-mono text-slate-600 dark:text-slate-400">
-                <span>• Async WebSockets</span>
-                <span>• State Machine</span>
-                <span>• Race Condition Guard</span>
-              </div>
-            </div>
-            <div class="mt-6 pt-4 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between">
-              <a href="projects/bidding-platform.html" class="text-sm font-semibold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1">
-                View Detailed Case Study
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                </svg>
-              </a>
-            </div>
-          </article>
+          <div class="p-4 rounded-xl dev-card">
+            <span class="text-[11px] font-mono text-slate-500 block mb-1">Primary Stack</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 block">Python / PHP</span>
+            <span class="text-[10px] font-mono text-slate-400 mt-0.5 block">Django, FastAPI, Laravel</span>
+          </div>
+
+          <div class="p-4 rounded-xl dev-card">
+            <span class="text-[11px] font-mono text-slate-500 block mb-1">Storage & Cache</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 block">PostgreSQL / Redis</span>
+            <span class="text-[10px] font-mono text-slate-400 mt-0.5 block">ACID locks & Caching</span>
+          </div>
+
+          <div class="p-4 rounded-xl dev-card">
+            <span class="text-[11px] font-mono text-slate-500 block mb-1">Daily Drivers</span>
+            <span class="text-xs sm:text-sm font-bold text-slate-900 dark:text-slate-100 block">Neovim / Docker</span>
+            <span class="text-[10px] font-mono text-slate-400 mt-0.5 block">Postman & DBeaver</span>
+          </div>
 
         </div>
+
       </div>
     </section>
 
-    <section id="engineering" class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/60 bg-white dark:bg-slate-900/20">
-      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <!-- =========================================================================
+         3. MY STORY & ABOUT ME (Editorial Narrative)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         
-        <div class="text-center max-w-3xl mx-auto mb-16">
-          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Engineering Philosophy</span>
-          <h2 class="text-3xl sm:text-4xl font-bold text-slate-900 dark:text-slate-100 mt-2">How I Build Software</h2>
-          <p class="text-slate-600 dark:text-slate-400 mt-3 text-base">A systematic approach to architecting backend systems that remain maintainable, secure, and performant over time.</p>
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+          
+          <div class="lg:col-span-5 space-y-4">
+            <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">About Soyal</span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight leading-tight">
+              Engineering systems that are explicit, secure, and built to last.
+            </h2>
+            <p class="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              I am a backend developer who cares deeply about schema integrity, clean domain boundaries, and creating interfaces that editorial teams actually enjoy using.
+            </p>
+            <div class="pt-2">
+              <a href="about.html" class="inline-flex items-center gap-2 text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 hover:underline">
+                <span>Read my full journey and story →</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="lg:col-span-7 space-y-6 text-slate-700 dark:text-slate-300 text-sm sm:text-base leading-relaxed">
+            
+            <p>
+              My journey into software engineering started in Kathmandu with a simple fascination: how can code reliably coordinate inventory, money, and content across distributed users without falling apart? That curiosity drove me straight to backend systems, database transactions, and content architectures.
+            </p>
+
+            <p>
+              Over the years, I have architected and deployed production backends ranging from multi-outlet POS billing engines to headless e-commerce platforms and high-concurrency ticket locking systems. I specialize particularly in <strong class="text-slate-900 dark:text-slate-100">Wagtail CMS & Django</strong> because it provides the sweet spot of structured, flexible StreamField content authoring with the raw power and security of Python.
+            </p>
+
+            <div class="p-5 rounded-xl bg-slate-100 dark:bg-[#0f172a] border border-slate-200 dark:border-slate-800 space-y-3 font-mono text-xs">
+              <span class="text-emerald-700 dark:text-emerald-400 font-bold block">What Drives My Work Daily:</span>
+              <ul class="space-y-2 text-slate-600 dark:text-slate-300">
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-500 font-bold">✓</span>
+                  <span>Writing clean, self-documenting code over convoluted abstractions.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-500 font-bold">✓</span>
+                  <span>Designing database tables with explicit foreign keys, indexes, and concurrency locks.</span>
+                </li>
+                <li class="flex items-start gap-2">
+                  <span class="text-emerald-500 font-bold">✓</span>
+                  <span>Giving editorial and business teams flexible CMS building blocks without breaking layouts.</span>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div class="tech-card p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-            <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-400 flex items-center justify-center font-bold font-mono text-sm mb-4">01</div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Understand & Model</h3>
-            <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 leading-relaxed">Deeply analyze domain logic before writing code. Design clear database schemas, relational foreign keys, and API contracts.</p>
-          </div>
-
-          <div class="tech-card p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-            <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-400 flex items-center justify-center font-bold font-mono text-sm mb-4">02</div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Secure & Authorize</h3>
-            <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 leading-relaxed">Implement strict role-based authorization (RBAC), JWT / Session security, payload validation, and SQL injection prevention by default.</p>
-          </div>
-
-          <div class="tech-card p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 shadow-sm">
-            <div class="w-10 h-10 rounded-lg bg-emerald-100 dark:bg-emerald-950 border border-emerald-300 dark:border-emerald-800 text-emerald-800 dark:text-emerald-400 flex items-center justify-center font-bold font-mono text-sm mb-4">03</div>
-            <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Optimize & Maintain</h3>
-            <p class="text-slate-600 dark:text-slate-300 text-sm mt-2 leading-relaxed">Benchmark database query execution times, eliminate N+1 queries, add Redis caching, and write clean, modular Django/Wagtail code.</p>
-          </div>
-        </div>
       </div>
     </section>
 
-    <section id="contact-cta" class="py-16 md:py-24 bg-slate-100 dark:bg-slate-950 border-b border-slate-200 dark:border-slate-800/60">
-      <div class="max-w-4xl mx-auto px-4 text-center space-y-6">
-        <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Let's Work Together</span>
-        <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100">Have a problem worth solving?</h2>
-        <p class="text-slate-700 dark:text-slate-300 text-lg max-w-2xl mx-auto leading-relaxed">
-          I'm actively interested in senior backend engineering roles, Django/Wagtail CMS developments, and complex software projects.
-        </p>
-        <div class="pt-4 flex flex-wrap items-center justify-center gap-4">
-          <a href="contact.html" class="px-8 py-4 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold transition-all shadow-lg shadow-emerald-600/20">
-            Send a Message
+    <!-- =========================================================================
+         4. CORE BACKEND EXPERTISE (What I Do & Build)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1120]/40">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-12 space-y-3">
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Core Expertise</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+            Backend Engineering & System Architecture
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            Here is how I help engineering teams and businesses build fast, secure, and maintainable software.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- Pillar 1 -->
+          <div class="dev-card p-6 sm:p-8 rounded-xl space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">01 / APIS & CONCURRENCY</span>
+              <span class="dev-badge-neutral">FastAPI • Django REST</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">REST APIs & Async Microservices</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Designing predictable REST endpoints, rate limiting, token authentication (JWT / OAuth2), and asynchronous worker pipelines with sub-second response times.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="dev-badge">Asyncio</span>
+              <span class="dev-badge">Redis Locks</span>
+              <span class="dev-badge">Pydantic</span>
+              <span class="dev-badge">WebSockets</span>
+            </div>
+          </div>
+
+          <!-- Pillar 2 -->
+          <div class="dev-card p-6 sm:p-8 rounded-xl space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">02 / CMS ARCHITECTURE</span>
+              <span class="dev-badge-neutral">Wagtail CMS • Django</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Wagtail CMS & Content Hubs</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Building modular Wagtail Page Models and bespoke StreamField block ecosystems. Empowering non-technical content teams while keeping HTML semantic and cached.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="dev-badge">StreamFields</span>
+              <span class="dev-badge">PageChooser</span>
+              <span class="dev-badge">Snippets</span>
+              <span class="dev-badge">Redis Cache</span>
+            </div>
+          </div>
+
+          <!-- Pillar 3 -->
+          <div class="dev-card p-6 sm:p-8 rounded-xl space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">03 / DATABASE DESIGN</span>
+              <span class="dev-badge-neutral">PostgreSQL • MySQL</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">Schema Design & ACID Transactions</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Normalizing relational tables, crafting multi-tenant tenant isolation keys, pessimistic locking (<code class="font-mono text-emerald-600 dark:text-emerald-400">lockForUpdate</code>), and profiling ORM query performance.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="dev-badge">Query Profiling</span>
+              <span class="dev-badge">Index Strategy</span>
+              <span class="dev-badge">Transactions</span>
+              <span class="dev-badge">N+1 Elimination</span>
+            </div>
+          </div>
+
+          <!-- Pillar 4 -->
+          <div class="dev-card p-6 sm:p-8 rounded-xl space-y-4">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold">04 / BUSINESS SYSTEMS</span>
+              <span class="dev-badge-neutral">Laravel • Vue</span>
+            </div>
+            <h3 class="text-xl font-bold text-slate-900 dark:text-slate-100">POS & Commercial Integrations</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Engineering multi-outlet billing systems, inventory deduction engines, kitchen display ticket dispatchers, and reliable webhook ingestion pipelines.
+            </p>
+            <div class="flex flex-wrap gap-1.5 pt-2">
+              <span class="dev-badge">Multi-Store POS</span>
+              <span class="dev-badge">Payment Webhooks</span>
+              <span class="dev-badge">Audit Logs</span>
+              <span class="dev-badge">REST Sync</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. MY TOOLBOX / TECHNICAL STACK (Organized & Authentic)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div class="space-y-2">
+            <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">My Toolbox</span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+              Technologies & Daily Drivers
+            </h2>
+          </div>
+          <p class="text-xs sm:text-sm text-slate-500 font-mono">
+            Every tool here is used in production systems.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <!-- Category 1 -->
+          <div class="p-6 rounded-xl dev-card space-y-3">
+            <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block border-b border-slate-200 dark:border-slate-800 pb-2">Backend & CMS</span>
+            <ul class="space-y-2 text-xs font-mono text-slate-700 dark:text-slate-300">
+              <li class="flex items-center justify-between"><span>Python 3.11+</span> <span class="text-slate-500">Core</span></li>
+              <li class="flex items-center justify-between"><span>Django & DRF</span> <span class="text-slate-500">Primary</span></li>
+              <li class="flex items-center justify-between"><span>Wagtail CMS</span> <span class="text-emerald-700 dark:text-emerald-400 font-semibold">Specialist</span></li>
+              <li class="flex items-center justify-between"><span>FastAPI</span> <span class="text-slate-500">Async</span></li>
+              <li class="flex items-center justify-between"><span>PHP & Laravel</span> <span class="text-slate-500">Web/POS</span></li>
+            </ul>
+          </div>
+
+          <!-- Category 2 -->
+          <div class="p-6 rounded-xl dev-card space-y-3">
+            <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block border-b border-slate-200 dark:border-slate-800 pb-2">Databases & Caching</span>
+            <ul class="space-y-2 text-xs font-mono text-slate-700 dark:text-slate-300">
+              <li class="flex items-center justify-between"><span>PostgreSQL</span> <span class="text-emerald-700 dark:text-emerald-400 font-semibold">Primary</span></li>
+              <li class="flex items-center justify-between"><span>Redis</span> <span class="text-slate-500">Locks & Cache</span></li>
+              <li class="flex items-center justify-between"><span>MySQL / MariaDB</span> <span class="text-slate-500">Commercial</span></li>
+              <li class="flex items-center justify-between"><span>SQLite</span> <span class="text-slate-500">Testing</span></li>
+            </ul>
+          </div>
+
+          <!-- Category 3 -->
+          <div class="p-6 rounded-xl dev-card space-y-3">
+            <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block border-b border-slate-200 dark:border-slate-800 pb-2">DevOps & Tooling</span>
+            <ul class="space-y-2 text-xs font-mono text-slate-700 dark:text-slate-300">
+              <li class="flex items-center justify-between"><span>Docker & Compose</span> <span class="text-slate-500">Containers</span></li>
+              <li class="flex items-center justify-between"><span>Git & GitHub</span> <span class="text-slate-500">VCS</span></li>
+              <li class="flex items-center justify-between"><span>Postman</span> <span class="text-slate-500">API Testing</span></li>
+              <li class="flex items-center justify-between"><span>DBeaver / DataGrip</span> <span class="text-slate-500">DB GUI</span></li>
+              <li class="flex items-center justify-between"><span>Linux / Bash / Zsh</span> <span class="text-slate-500">Shell</span></li>
+            </ul>
+          </div>
+
+          <!-- Category 4 -->
+          <div class="p-6 rounded-xl dev-card space-y-3">
+            <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400 uppercase tracking-wider block border-b border-slate-200 dark:border-slate-800 pb-2">Frontend & Interfaces</span>
+            <ul class="space-y-2 text-xs font-mono text-slate-700 dark:text-slate-300">
+              <li class="flex items-center justify-between"><span>JavaScript (ES6+)</span> <span class="text-slate-500">Vanilla</span></li>
+              <li class="flex items-center justify-between"><span>Vue.js</span> <span class="text-slate-500">POS UI</span></li>
+              <li class="flex items-center justify-between"><span>Tailwind CSS</span> <span class="text-slate-500">Styling</span></li>
+              <li class="flex items-center justify-between"><span>HTML5 / Semantic</span> <span class="text-slate-500">Clean</span></li>
+            </ul>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. SELECTED PROJECTS (My Actual Case Studies)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1120]/40">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-12">
+          <div class="space-y-2">
+            <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Production Work</span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+              Featured Engineering Case Studies
+            </h2>
+          </div>
+          <a href="projects.html" class="text-xs font-mono font-semibold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1">
+            <span>View all projects catalog →</span>
           </a>
-          <button type="button" data-email="soyal@example.com" class="copy-email-btn px-6 py-4 rounded-lg bg-white dark:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-medium hover:border-emerald-500 dark:hover:border-slate-500 transition-all shadow-sm">
-            Copy Email Address
+        </div>
+
+        <div class="space-y-8">
+          
+          <!-- Project 1: NexusPOS -->
+          <article class="dev-card p-6 sm:p-8 rounded-xl flex flex-col lg:flex-row gap-8 justify-between items-start">
+            <div class="space-y-4 lg:max-w-2xl">
+              <div class="flex items-center gap-3">
+                <span class="dev-badge">Lead Backend Engineer</span>
+                <span class="text-xs font-mono text-slate-500">Laravel • Vue.js • MySQL</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
+                <a href="projects/nexuspos.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">NexusPOS — Multi-Store Point of Sale Platform</a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Multi-outlet retail and restaurant billing platform. Built atomic inventory deduction wrapped in MySQL database transactions with pessimistic row locking (<code class="font-mono text-emerald-600 dark:text-emerald-400">SELECT FOR UPDATE</code>) to prevent inventory drift across concurrent cashiers.
+              </p>
+              <div class="p-3.5 rounded-lg bg-slate-100 dark:bg-[#0b1120] border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-400">
+                <strong class="text-slate-900 dark:text-slate-200">Architecture highlight:</strong> Guaranteed zero stock overselling across 5+ concurrent billing counters per store.
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="dev-badge-neutral">Multi-Tenant</span>
+                <span class="dev-badge-neutral">Pessimistic Locking</span>
+                <span class="dev-badge-neutral">REST Ingestion</span>
+                <span class="dev-badge-neutral">Kitchen Routing</span>
+              </div>
+            </div>
+
+            <div class="w-full lg:w-auto shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
+              <a href="projects/nexuspos.html" class="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs text-center transition-all font-mono">
+                Read Case Study →
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 2: Cinema Ticket Engine -->
+          <article class="dev-card p-6 sm:p-8 rounded-xl flex flex-col lg:flex-row gap-8 justify-between items-start">
+            <div class="space-y-4 lg:max-w-2xl">
+              <div class="flex items-center gap-3">
+                <span class="dev-badge">Backend Architect</span>
+                <span class="text-xs font-mono text-slate-500">FastAPI • Redis • PostgreSQL</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
+                <a href="projects/cinema-platform.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Cinema Ticket Reservation & Seat Locking Engine</a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                High-concurrency ticket reservation engine. Prevents double-booking race conditions during flash releases using Redis distributed lock keys (<code class="font-mono text-emerald-600 dark:text-emerald-400">SET NX EX</code>) with 10-minute automated TTL expiration.
+              </p>
+              <div class="p-3.5 rounded-lg bg-slate-100 dark:bg-[#0b1120] border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-400">
+                <strong class="text-slate-900 dark:text-slate-200">Architecture highlight:</strong> Dropped SQL contention by 65% by shifting temporary holds into Redis memory.
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="dev-badge-neutral">Distributed Locks</span>
+                <span class="dev-badge-neutral">TTL Expiration</span>
+                <span class="dev-badge-neutral">Idempotency Keys</span>
+                <span class="dev-badge-neutral">FastAPI Async</span>
+              </div>
+            </div>
+
+            <div class="w-full lg:w-auto shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
+              <a href="projects/cinema-platform.html" class="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs text-center transition-all font-mono">
+                Read Case Study →
+              </a>
+            </div>
+          </article>
+
+          <!-- Project 3: Wagtail E-Commerce -->
+          <article class="dev-card p-6 sm:p-8 rounded-xl flex flex-col lg:flex-row gap-8 justify-between items-start">
+            <div class="space-y-4 lg:max-w-2xl">
+              <div class="flex items-center gap-3">
+                <span class="dev-badge">Wagtail Lead Developer</span>
+                <span class="text-xs font-mono text-slate-500">Django 5 • Wagtail CMS • WooCommerce</span>
+              </div>
+              <h3 class="text-2xl font-bold text-slate-900 dark:text-slate-100">
+                <a href="projects/ecommerce.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Wagtail CMS Enterprise Product & Content Hub</a>
+              </h3>
+              <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+                Headless Wagtail CMS product hub. Created custom StreamField block structures, automated SEO schema graph injection, and bi-directional WooCommerce REST synchronization.
+              </p>
+              <div class="p-3.5 rounded-lg bg-slate-100 dark:bg-[#0b1120] border border-slate-200 dark:border-slate-800 text-xs font-mono text-slate-600 dark:text-slate-400">
+                <strong class="text-slate-900 dark:text-slate-200">Architecture highlight:</strong> Enabled editorial staff to launch custom product landing pages in &lt;15 mins with zero dev input.
+              </div>
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                <span class="dev-badge-neutral">StreamField Blocks</span>
+                <span class="dev-badge-neutral">REST Webhooks</span>
+                <span class="dev-badge-neutral">SEO Graph</span>
+                <span class="dev-badge-neutral">Redis Caching</span>
+              </div>
+            </div>
+
+            <div class="w-full lg:w-auto shrink-0 flex flex-col sm:flex-row lg:flex-col gap-3">
+              <a href="projects/ecommerce.html" class="px-5 py-2.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-semibold text-xs text-center transition-all font-mono">
+                Read Case Study →
+              </a>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. HOW I THINK & BUILD (Engineering Mindset)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="max-w-3xl mb-12 space-y-2">
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Engineering Principles</span>
+          <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+            How I Think & Build Software
+          </h2>
+          <p class="text-sm sm:text-base text-slate-600 dark:text-slate-400 leading-relaxed">
+            The guiding rules I follow when architecting systems for production stability and maintainability.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          
+          <div class="p-6 rounded-xl dev-card space-y-3">
+            <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400">01</span>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Understand Before Coding</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Identify edge cases, state transitions, and concurrency hazards before writing a single line of application code.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-xl dev-card space-y-3">
+            <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400">02</span>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Schema-First Modeling</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              If the database schema is clean and explicit, business logic remains simple. If the schema is flawed, everything else becomes technical debt.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-xl dev-card space-y-3">
+            <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400">03</span>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Explicit Over Clever</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Code is read ten times more often than it is written. I prefer boring, explicit patterns over cryptic "magical" metaprogramming.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-xl dev-card space-y-3">
+            <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400">04</span>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Defense in Depth</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Validate input on the edge (Pydantic / FormRequest), verify permissions in middleware, and lock resources at the database row level.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-xl dev-card space-y-3">
+            <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400">05</span>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Measure Before Optimizing</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              Never guess what is slow. Profile SQL execution plans (<code class="font-mono text-emerald-600 dark:text-emerald-400">EXPLAIN ANALYZE</code>) and benchmark endpoints before refactoring.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-xl dev-card space-y-3">
+            <span class="text-xs font-mono font-bold text-emerald-700 dark:text-emerald-400">06</span>
+            <h3 class="text-lg font-bold text-slate-900 dark:text-slate-100">Empathy for Editors</h3>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+              A CMS is only as good as the editor experience. Wagtail StreamFields should guide content managers without putting cognitive load on them.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. WHAT I'M BUILDING & EXPLORING (Live Personal Dashboard)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80 bg-white dark:bg-[#0b1120]/40">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10">
+          <div class="space-y-2">
+            <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Live Status</span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+              Currently Building & Exploring
+            </h2>
+          </div>
+          <span class="text-xs font-mono text-slate-500">Updated August 2026</span>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div class="dev-card p-5 rounded-xl space-y-2">
+            <span class="text-[11px] font-mono text-emerald-700 dark:text-emerald-400 font-bold uppercase tracking-wider block">🔨 Currently Building</span>
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 font-semibold leading-snug">
+              High-Throughput Redis Event Streamer
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Evaluating consumer group offsets and async Python workers for distributed task queues.
+            </p>
+          </div>
+
+          <div class="dev-card p-5 rounded-xl space-y-2">
+            <span class="text-[11px] font-mono text-amber-700 dark:text-amber-400 font-bold uppercase tracking-wider block">🔍 Deep Diving</span>
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 font-semibold leading-snug">
+              Wagtail 6 & Async Django ORM
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Benchmarking async query evaluation inside custom Wagtail Page get_context methods.
+            </p>
+          </div>
+
+          <div class="dev-card p-5 rounded-xl space-y-2">
+            <span class="text-[11px] font-mono text-teal-700 dark:text-teal-400 font-bold uppercase tracking-wider block">📖 Reading</span>
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 font-semibold leading-snug">
+              Designing Data-Intensive Apps
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Revisiting partition strategies, replication lag handling, and consensus models by Martin Kleppmann.
+            </p>
+          </div>
+
+          <div class="dev-card p-5 rounded-xl space-y-2">
+            <span class="text-[11px] font-mono text-purple-700 dark:text-purple-400 font-bold uppercase tracking-wider block">💼 Open To</span>
+            <p class="text-xs sm:text-sm text-slate-700 dark:text-slate-200 font-semibold leading-snug">
+              Senior Roles & Consultancy
+            </p>
+            <p class="text-xs text-slate-500 leading-relaxed">
+              Available for full-time senior backend roles and Wagtail CMS architecture consultation.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         9. BEYOND CODE (Personal Dimensions & Human Touch)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 border-b border-slate-200 dark:border-slate-800/80">
+      <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          <div class="lg:col-span-5 space-y-3">
+            <span class="text-xs font-mono font-semibold uppercase tracking-wider text-emerald-700 dark:text-emerald-400">Beyond The Terminal</span>
+            <h2 class="text-2xl sm:text-4xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+              Life Outside The Terminal
+            </h2>
+            <p class="text-xs sm:text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+              Great software is built by real people with broad perspectives and clear minds.
+            </p>
+          </div>
+
+          <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-4">
+            
+            <div class="p-5 rounded-xl dev-card space-y-2">
+              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold block">🏔️ Himalayan Trails</span>
+              <h4 class="text-sm font-bold text-slate-900 dark:text-slate-100">Hiking & Trail Exploration</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Hiking the ridge trails of the Kathmandu valley and surrounding Himalayan foothills to reset and rethink complex systems.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl dev-card space-y-2">
+              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold block">👥 Mentoring & Community</span>
+              <h4 class="text-sm font-bold text-slate-900 dark:text-slate-100">Local Tech Community</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Helping junior developers understand relational schema design, API security, and Python best practices.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl dev-card space-y-2">
+              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold block">☕ Coffee & Deep Work</span>
+              <h4 class="text-sm font-bold text-slate-900 dark:text-slate-100">Manual Pour-Overs</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Daily coffee brewing rituals that set the rhythm for focused, uninterrupted deep work sessions.
+              </p>
+            </div>
+
+            <div class="p-5 rounded-xl dev-card space-y-2">
+              <span class="text-xs font-mono text-emerald-600 dark:text-emerald-400 font-bold block">⌨️ Craft & Keyboards</span>
+              <h4 class="text-sm font-bold text-slate-900 dark:text-slate-100">Tactile Hardware Setup</h4>
+              <p class="text-xs text-slate-600 dark:text-slate-300 leading-relaxed">
+                Enjoying clean, minimalist hardware setups, customized keymaps, and high-contrast monospace code themes.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         10. LET'S CONNECT (Direct Human Contact Callout)
+         ========================================================================= -->
+    <section class="py-16 md:py-24 bg-slate-100 dark:bg-[#0b1120]/70">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
+        
+        <div class="space-y-3">
+          <span class="text-xs font-mono uppercase tracking-wider text-emerald-700 dark:text-emerald-400 font-semibold">Let's Build Together</span>
+          <h2 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight">
+            Have an interesting backend challenge or Wagtail project?
+          </h2>
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-2xl mx-auto">
+            I am always interested in discussing senior backend engineering roles, Wagtail CMS architecture, and challenging database problems.
+          </p>
+        </div>
+
+        <!-- Contact Actions -->
+        <div class="flex flex-wrap items-center justify-center gap-4">
+          <a href="contact.html" class="px-6 py-3.5 rounded-lg bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-sm transition-all shadow-sm">
+            Send Me a Message
+          </a>
+          <button type="button" class="copy-email-btn px-5 py-3.5 rounded-lg bg-white dark:bg-[#0f172a] hover:bg-slate-50 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 font-mono text-xs transition-all inline-flex items-center gap-2" data-email="soyal@example.com">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 text-emerald-600 dark:text-emerald-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+            </svg>
+            <span>Copy: soyal@example.com</span>
           </button>
         </div>
+
+        <!-- Response Time & Location Note -->
+        <p class="text-xs font-mono text-slate-500">
+          Based in Kathmandu, Nepal (UTC+5:45) • Usually responding within 24 hours.
+        </p>
+
       </div>
     </section>
 
   </main>
 
-  <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800/80 py-12 text-sm text-slate-600 dark:text-slate-400 transition-colors">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- =========================================================================
+       FOOTER
+       ========================================================================= -->
+  <footer class="bg-white dark:bg-[#090d16] border-t border-slate-200 dark:border-slate-800/80 py-12 text-sm text-slate-600 dark:text-slate-400 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        
         <div class="space-y-3 md:col-span-2">
-          <a href="index.html" class="font-bold text-base text-slate-900 dark:text-slate-100">Soyal<span class="text-emerald-600 dark:text-emerald-500">.dev</span></a>
+          <a href="index.html" class="font-bold text-base text-slate-900 dark:text-slate-100 font-mono">soyal<span class="text-emerald-600 dark:text-emerald-400">.dev</span></a>
           <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed max-w-sm">
-            Senior Backend Developer & Software Engineer based in Kathmandu, Nepal. Building production backend systems with Django, Wagtail, FastAPI, and Laravel.
+            Senior Backend Developer & Wagtail Specialist based in Kathmandu, Nepal. Building production backend systems with Django, Wagtail, FastAPI, and Laravel.
           </p>
-          <p class="text-xs text-slate-500">Kathmandu, Nepal • Available Worldwide</p>
+          <p class="text-xs font-mono text-slate-500">Kathmandu, Nepal • Available Worldwide</p>
         </div>
 
         <div class="space-y-2">
-          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-800 dark:text-slate-300 block mb-3">Site Links</span>
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-800 dark:text-slate-300 block mb-3">Navigation</span>
           <ul class="space-y-2 text-xs">
             <li><a href="about.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About Me</a></li>
             <li><a href="experience.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Career Experience</a></li>
             <li><a href="projects.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Engineering Projects</a></li>
-            <li><a href="blog.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Engineering Blog</a></li>
+            <li><a href="blog.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Engineering Notes</a></li>
             <li><a href="contact.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Contact Information</a></li>
             <li><a href="resume.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Developer Resume</a></li>
           </ul>
@@ -513,7 +981,7 @@
       </div>
 
       <div class="mt-12 pt-6 border-t border-slate-200 dark:border-slate-800/60 flex flex-col sm:flex-row items-center justify-between text-xs text-slate-500 gap-4">
-        <p>© <span class="current-year">2026</span> Soyal. All rights reserved. Built for Wagtail/Django integration.</p>
+        <p>© <span class="current-year">2026</span> Soyal. All rights reserved.</p>
         <div class="flex items-center space-x-4">
           <a href="sitemap.xml" class="hover:text-slate-700 dark:hover:text-slate-400">Sitemap</a>
           <a href="robots.txt" class="hover:text-slate-700 dark:hover:text-slate-400">Robots.txt</a>
@@ -524,7 +992,6 @@
 
   <script src="assets/js/main.js"></script>
   <script src="assets/js/navigation.js"></script>
-  <script src="assets/js/animations.js"></script>
   <script src="assets/js/contact.js"></script>
 </body>
 </html>

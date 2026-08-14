@@ -20,32 +20,36 @@
   </script>
   
   <!-- SEO Primary Meta Tags -->
-  <title>Wagtail E-Commerce Case Study — Django & Wagtail CMS | Soyal</title>
-  <meta name="description" content="Technical Case Study: Headless product hub and content management platform built with Wagtail CMS Page Models, StreamFields, and WooCommerce API synchronization.">
-  <meta name="keywords" content="Wagtail CMS Case Study, Django E-Commerce Architecture, Wagtail Page Models, Headless Wagtail CMS, Soyal Portfolio">
+  <title>Wagtail E-Commerce & Product Hub Case Study | Soyal</title>
+  <meta name="description" content="Technical Case Study: Structuring modular Wagtail CMS Page Models, StreamFields, and WooCommerce REST synchronization by Soyal.">
+  <meta name="keywords" content="Wagtail CMS Case Study, Django StreamField, Headless Wagtail E-Commerce, WooCommerce REST Sync, Soyal Projects">
   <meta name="author" content="Soyal">
   <link rel="canonical" href="https://soyal-portfolio.dev/projects/ecommerce.html">
   <link rel="icon" type="image/svg+xml" href="../assets/icons/favicon.svg">
   <link rel="manifest" href="../site.webmanifest">
-  <meta name="theme-color" content="#0f172a">
+  <meta name="theme-color" content="#090d16">
 
   <!-- Open Graph -->
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://soyal-portfolio.dev/projects/ecommerce.html">
-  <meta property="og:title" content="Wagtail E-Commerce Case Study — Django & Wagtail CMS">
-  <meta property="og:description" content="Enterprise catalog authoring and product synchronization using Django, Wagtail Page Models, and StreamFields.">
+  <meta property="og:title" content="Wagtail E-Commerce & Product Hub Case Study | Soyal">
+  <meta property="og:description" content="Detailed engineering breakdown of Wagtail CMS StreamFields and Django product modeling.">
   <meta property="og:image" content="https://soyal-portfolio.dev/assets/images/og-ecommerce.webp">
 
   <!-- Fonts & Tailwind Config -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
   <script>
     tailwind.config = {
       darkMode: 'class',
       theme: {
         extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', 'Inter', 'system-ui', 'sans-serif'],
+            mono: ['JetBrains Mono', 'Fira Code', 'monospace'],
+          },
           colors: {
             emerald: {
               50: '#f0fdf4',
@@ -70,47 +74,60 @@
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "SoftwareSourceCode",
-    "name": "Wagtail E-Commerce Hub",
-    "programmingLanguage": "Python, Django, Wagtail CMS",
-    "author": { "@type": "Person", "name": "Soyal" }
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://soyal-portfolio.dev/" },
+          { "@type": "ListItem", "position": 2, "name": "Projects", "item": "https://soyal-portfolio.dev/projects.html" },
+          { "@type": "ListItem", "position": 3, "name": "Wagtail E-Commerce", "item": "https://soyal-portfolio.dev/projects/ecommerce.html" }
+        ]
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "name": "Wagtail CMS E-Commerce Hub",
+        "programmingLanguage": "Python, Django, Wagtail CMS",
+        "author": { "@type": "Person", "name": "Soyal" }
+      }
+    ]
   }
   </script>
 </head>
-<body class="bg-slate-50 text-slate-900 dark:bg-slate-900 dark:text-slate-100 min-h-screen flex flex-col antialiased transition-colors duration-200">
+<body class="bg-slate-50 text-slate-900 dark:bg-[#090d16] dark:text-slate-100 min-h-screen flex flex-col antialiased transition-colors duration-200 bg-dev-grid">
   <a href="#main-content" class="skip-link">Skip to main content</a>
 
-  <header class="sticky top-0 z-50 bg-white/90 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-200 shadow-sm dark:shadow-none">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Header -->
+  <header class="sticky top-0 z-50 bg-white/90 dark:bg-[#090d16]/85 backdrop-blur-md border-b border-slate-200 dark:border-slate-800/80 transition-colors duration-200">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="flex items-center justify-between h-16">
-        <a href="../index.html" class="flex items-center gap-2 group" aria-label="Soyal Portfolio Homepage">
-          <div class="w-9 h-9 rounded-lg bg-emerald-50 dark:bg-slate-800 border border-emerald-200 dark:border-slate-700 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:border-emerald-500 transition-colors">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-            </svg>
+        
+        <a href="../index.html" class="flex items-center gap-2.5 group" aria-label="Soyal Portfolio Homepage">
+          <div class="w-8 h-8 rounded-md bg-emerald-50 dark:bg-slate-800/80 border border-emerald-200 dark:border-slate-700 flex items-center justify-center text-emerald-600 dark:text-emerald-400 group-hover:border-emerald-500 transition-colors font-mono font-bold text-sm">
+            &gt;_
           </div>
-          <span class="font-bold text-lg text-slate-900 dark:text-slate-100 tracking-tight">Soyal<span class="text-emerald-600 dark:text-emerald-500">.dev</span></span>
+          <span class="font-bold text-base text-slate-900 dark:text-slate-100 tracking-tight font-mono">soyal<span class="text-emerald-600 dark:text-emerald-400">.dev</span></span>
         </a>
 
-        <nav class="hidden md:flex items-center space-x-8" aria-label="Primary navigation">
+        <nav class="hidden md:flex items-center space-x-7" aria-label="Primary navigation">
           <a href="../index.html" class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Home</a>
           <a href="../about.html" class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About</a>
           <a href="../experience.html" class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Experience</a>
-          <a href="../projects.html" class="text-sm font-medium text-emerald-600 dark:text-emerald-400 transition-colors">Projects</a>
+          <a href="../projects.html" class="text-sm font-medium text-emerald-600 dark:text-emerald-400 font-semibold transition-colors" aria-current="page">Projects</a>
+          <a href="../blog.html" class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Notes</a>
           <a href="../contact.html" class="text-sm font-medium text-slate-700 dark:text-slate-300 hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Contact</a>
         </nav>
 
-        <div class="hidden md:flex items-center space-x-4">
-          <button type="button" class="theme-toggle-btn p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-slate-200 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 transition-colors" aria-label="Toggle light and dark mode">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 hidden dark:block text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <div class="hidden md:flex items-center space-x-3">
+          <button type="button" class="theme-toggle-btn p-2 rounded-lg text-slate-600 dark:text-slate-400 hover:text-emerald-600 dark:hover:text-slate-200 bg-slate-100 dark:bg-slate-800/80 border border-slate-200 dark:border-slate-700 transition-colors" aria-label="Toggle light and dark mode">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 hidden dark:block text-amber-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" />
             </svg>
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 block dark:hidden text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 block dark:hidden text-emerald-700" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" />
             </svg>
           </button>
-          <a href="../resume.html" class="inline-flex items-center px-4 py-2 text-sm font-medium rounded-lg text-emerald-700 dark:text-emerald-400 border border-emerald-300 dark:border-emerald-500/30 hover:bg-emerald-50 dark:hover:bg-emerald-500/10 transition-all">
-            Resume
+          <a href="../resume.html" class="inline-flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-mono font-medium rounded-lg text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800/80 hover:bg-emerald-100 dark:hover:bg-emerald-900/30 transition-all">
+            <span>CV / Resume</span>
           </a>
         </div>
 
@@ -132,49 +149,54 @@
       </div>
     </div>
 
-    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 pt-2 pb-6 space-y-3">
+    <!-- Mobile Drawer Menu -->
+    <div id="mobile-menu" class="hidden md:hidden border-b border-slate-200 dark:border-slate-800 bg-white dark:bg-[#0f172a] px-4 pt-2 pb-6 space-y-2">
       <a href="../index.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Home</a>
       <a href="../about.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">About</a>
       <a href="../experience.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Experience</a>
       <a href="../projects.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-800 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800">Projects</a>
+      <a href="../blog.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Engineering Notes</a>
       <a href="../contact.html" class="block px-3 py-2 rounded-md text-base font-medium text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800">Contact</a>
-      <a href="../resume.html" class="block px-3 py-2 rounded-md text-base font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800 text-center mt-4">View Resume</a>
+      <a href="../resume.html" class="block px-3 py-2 rounded-md text-base font-medium text-emerald-700 dark:text-emerald-400 bg-emerald-50 dark:bg-emerald-950/40 border border-emerald-200 dark:border-emerald-800 text-center mt-3 font-mono">View Resume (PDF)</a>
     </div>
   </header>
 
   <main id="main-content" class="flex-grow">
     
-    <section class="py-16 border-b border-slate-200 dark:border-slate-800/60 bg-white dark:bg-slate-900/50">
+    <!-- Hero Header -->
+    <section class="py-14 md:py-20 border-b border-slate-200 dark:border-slate-800/80">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <nav aria-label="Breadcrumb" class="mb-4">
           <ol class="flex items-center space-x-2 text-xs font-mono text-slate-500 dark:text-slate-400">
-            <li><a href="../index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400">Home</a></li>
+            <li><a href="../index.html" class="hover:text-emerald-600 dark:hover:text-emerald-400">home</a></li>
             <li><span class="text-slate-400 dark:text-slate-600">/</span></li>
-            <li><a href="../projects.html" class="hover:text-emerald-600 dark:hover:text-emerald-400">Projects</a></li>
+            <li><a href="../projects.html" class="hover:text-emerald-600 dark:hover:text-emerald-400">projects</a></li>
             <li><span class="text-slate-400 dark:text-slate-600">/</span></li>
-            <li class="text-emerald-700 dark:text-emerald-400 font-semibold" aria-current="page">Wagtail E-Commerce</li>
+            <li class="text-emerald-700 dark:text-emerald-400 font-semibold" aria-current="page">ecommerce</li>
           </ol>
         </nav>
         
-        <div class="space-y-4">
+        <div class="space-y-3">
           <div class="flex items-center gap-3">
-            <span class="px-2.5 py-1 rounded bg-emerald-100 dark:bg-emerald-950 text-emerald-800 dark:text-emerald-400 border border-emerald-200 dark:border-emerald-800 text-xs font-mono font-semibold">Case Study</span>
-            <span class="text-xs text-slate-500 font-mono">Django • Wagtail CMS • WooCommerce Sync</span>
+            <span class="dev-badge">Engineering Case Study</span>
+            <span class="text-xs text-slate-500 font-mono">Django • Wagtail CMS • StreamField</span>
           </div>
-          <h1 class="text-4xl sm:text-5xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight leading-tight">
-            Wagtail CMS Enterprise E-Commerce Platform
+          <h1 class="text-3xl sm:text-5xl font-extrabold text-slate-900 dark:text-slate-100 tracking-tight leading-tight">
+            Wagtail CMS Enterprise Product Platform
           </h1>
-          <p class="text-lg text-slate-700 dark:text-slate-300 leading-relaxed">
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed">
             Structuring modular Wagtail Page Models and StreamField components for editorial product publishing, automated SEO schemas, and WooCommerce REST synchronization.
           </p>
         </div>
       </div>
     </section>
 
-    <article class="py-16">
+    <!-- Case Study Content -->
+    <article class="py-14">
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
-        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-6 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 text-xs font-mono shadow-sm">
+        <!-- Metadata Matrix -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 p-5 rounded-xl dev-card text-xs font-mono">
           <div>
             <span class="text-slate-500 block mb-1">My Role</span>
             <span class="text-slate-900 dark:text-slate-200 font-semibold">Wagtail Lead Developer</span>
@@ -193,17 +215,20 @@
           </div>
         </div>
 
-        <section class="space-y-4">
-          <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100">1. Architectural Goal</h2>
+        <section class="space-y-3">
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">1. Architectural Goal</h2>
           <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
             Content managers required a highly flexible content management interface where marketing teams could build custom landing pages, publish rich product stories, and sync inventory counts without requiring code updates from backend developers.
           </p>
         </section>
 
-        <section class="space-y-4">
-          <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100">2. Wagtail Page Model Implementation</h2>
+        <section class="space-y-3">
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">2. Wagtail Page Model Implementation</h2>
+          <p class="text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+            We implemented a structured hierarchy of Wagtail page models with StreamField block validation to give editors creative freedom without compromising responsive grid layouts or database query performance.
+          </p>
 
-          <div class="p-6 rounded-xl bg-slate-900 dark:bg-slate-950 border border-slate-800 font-mono text-xs text-slate-300 space-y-2">
+          <div class="p-5 rounded-xl bg-[#0b1120] border border-slate-800 font-mono text-xs text-slate-300 space-y-2">
             <span class="text-slate-500"># Wagtail ProductPage Model Pattern</span><br>
             <span class="text-amber-300">class</span> <span class="text-teal-300">ProductPage</span>(Page):<br>
             &nbsp;&nbsp;sku = models.CharField(max_length=<span class="text-teal-300">50</span>, unique=<span class="text-teal-300">True</span>)<br>
@@ -222,36 +247,47 @@
           </div>
         </section>
 
-        <section class="space-y-4">
-          <h2 class="text-2xl font-bold text-slate-900 dark:text-slate-100">3. Outcomes</h2>
+        <section class="space-y-3">
+          <h2 class="text-xl sm:text-2xl font-bold text-slate-900 dark:text-slate-100">3. Outcomes</h2>
           <ul class="list-disc list-inside text-sm text-slate-700 dark:text-slate-300 space-y-2">
             <li>Empowered non-technical content editors to create bespoke marketing pages in under 15 minutes.</li>
             <li>Reduced API synchronization delays with WooCommerce store hooks to under 1.5 seconds per product update.</li>
           </ul>
         </section>
 
+        <div class="pt-6 border-t border-slate-200 dark:border-slate-800 flex items-center justify-between">
+          <a href="cinema-platform.html" class="text-sm font-mono text-slate-500 hover:text-emerald-600 dark:hover:text-emerald-400 inline-flex items-center gap-1">
+            <span>← Previous: Cinema Engine</span>
+          </a>
+          <a href="bidding-platform.html" class="text-sm font-mono font-semibold text-emerald-700 dark:text-emerald-400 hover:underline inline-flex items-center gap-1">
+            <span>Next: Bidding Platform →</span>
+          </a>
+        </div>
+
       </div>
     </article>
 
   </main>
 
-  <footer class="bg-white dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800/80 py-12 text-sm text-slate-600 dark:text-slate-400 transition-colors">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+  <!-- Footer -->
+  <footer class="bg-white dark:bg-[#090d16] border-t border-slate-200 dark:border-slate-800/80 py-12 text-sm text-slate-600 dark:text-slate-400 transition-colors">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
       <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
         <div class="space-y-3 md:col-span-2">
-          <a href="../index.html" class="font-bold text-base text-slate-900 dark:text-slate-100">Soyal<span class="text-emerald-600 dark:text-emerald-500">.dev</span></a>
+          <a href="../index.html" class="font-bold text-base text-slate-900 dark:text-slate-100 font-mono">soyal<span class="text-emerald-600 dark:text-emerald-400">.dev</span></a>
           <p class="text-slate-600 dark:text-slate-400 text-xs leading-relaxed max-w-sm">
-            Senior Backend Developer & Software Engineer based in Kathmandu, Nepal. Building production backend systems with Django, Wagtail, FastAPI, and Laravel.
+            Senior Backend Developer & Wagtail Specialist based in Kathmandu, Nepal.
           </p>
-          <p class="text-xs text-slate-500">Kathmandu, Nepal • Available Worldwide</p>
+          <p class="text-xs font-mono text-slate-500">Kathmandu, Nepal • Available Worldwide</p>
         </div>
 
         <div class="space-y-2">
-          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-800 dark:text-slate-300 block mb-3">Site Links</span>
+          <span class="text-xs font-mono font-semibold uppercase tracking-wider text-slate-800 dark:text-slate-300 block mb-3">Navigation</span>
           <ul class="space-y-2 text-xs">
             <li><a href="../about.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">About Me</a></li>
             <li><a href="../experience.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Career Experience</a></li>
-            <li><a href="../projects.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Engineering Projects</a></li>
+            <li><a href="../projects.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Projects & Case Studies</a></li>
+            <li><a href="../blog.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Engineering Notes</a></li>
             <li><a href="../contact.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Contact Information</a></li>
             <li><a href="../resume.html" class="hover:text-emerald-600 dark:hover:text-emerald-400 transition-colors">Developer Resume</a></li>
           </ul>
