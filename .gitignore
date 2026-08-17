@@ -17,7 +17,6 @@ env/
 
 # Node / Tailwind build
 node_modules/
-core/static/css/styles.css
 npm-debug.log*
 
 # Editors / OS
