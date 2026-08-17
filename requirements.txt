@@ -4,4 +4,5 @@ django-taggit>=6.1,<7
 django-filter>=25.1,<27
 whitenoise>=6.12,<7
 django-environ>=0.14,<1
+psycopg[binary]>=3.2,<4
 Pygments>=2.20,<3
