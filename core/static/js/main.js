@@ -49,6 +49,7 @@
     updateToggleButtons(getInitialTheme());
     initThemeToggle();
     updateCopyrightYear();
+    initCopyButtons();
   });
 
   function initThemeToggle() {
@@ -64,6 +65,50 @@
         localStorage.setItem('theme', nextTheme);
       });
     });
+  }
+
+  function initCopyButtons() {
+    document.querySelectorAll('.copy-terminal-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const terminalWindow = btn.closest('.terminal-window');
+        if (!terminalWindow) return;
+        const rows = terminalWindow.querySelectorAll('.terminal-body div');
+        const text = Array.from(rows).map(r => r.innerText).join('\n');
+        try {
+          await navigator.clipboard.writeText('{\n  ' + text.split('\n').join('\n  ') + '\n}');
+          showCopiedFeedback(btn);
+        } catch (e) {
+          // Fallback
+          showCopiedFeedback(btn);
+        }
+      });
+    });
+
+    document.querySelectorAll('.copy-code-btn').forEach(btn => {
+      btn.addEventListener('click', async () => {
+        const container = btn.closest('.code-block-container') || btn.parentElement.parentElement;
+        if (!container) return;
+        const codeElem = container.querySelector('.pygments-code') || container.querySelector('pre') || container.querySelector('code');
+        if (!codeElem) return;
+        try {
+          await navigator.clipboard.writeText(codeElem.innerText);
+          showCopiedFeedback(btn);
+        } catch (e) {
+          showCopiedFeedback(btn);
+        }
+      });
+    });
+  }
+
+  function showCopiedFeedback(btn) {
+    const textSpan = btn.querySelector('.btn-text');
+    const originalText = textSpan ? textSpan.textContent : 'copy';
+    btn.classList.add('text-emerald-500', 'dark:text-emerald-400');
+    if (textSpan) textSpan.textContent = 'copied!';
+    setTimeout(() => {
+      btn.classList.remove('text-emerald-500', 'dark:text-emerald-400');
+      if (textSpan) textSpan.textContent = originalText;
+    }, 2000);
   }
 
   function updateCopyrightYear() {

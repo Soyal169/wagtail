@@ -7,10 +7,14 @@ from wagtail import urls as wagtail_urls
 from wagtail.contrib.sitemaps.views import sitemap
 from wagtail.documents import urls as wagtaildocs_urls
 
+from django.templatetags.static import static
+from django.views.generic.base import RedirectView
+
 from core.views import robots_txt
 from search import views as search_views
 
 urlpatterns = [
+    path("favicon.ico", RedirectView.as_view(url=static("icons/favicon.svg"), permanent=True)),
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
